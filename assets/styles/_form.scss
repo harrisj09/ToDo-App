@@ -1,0 +1,14 @@
+.app__form--input {
+    padding: 5px 40px 5px 10px;
+    font-family: $baseFont;
+}
+
+.app__form--submit {
+    margin-top: 10px;
+    border: 2px solid $boxColorLightBlue;
+    background-color: $boxColorLightBlue;
+    text-align: center;
+    width: 100px;
+    font-size: $mobileSizeParagraph;
+    cursor: pointer;
+}
