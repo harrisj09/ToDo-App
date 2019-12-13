@@ -6,4 +6,4 @@ Organize your life
 - SCSS
 - BEM Naming
 
-## Credit for [Design] (https://dribbble.com/shots/6570568-Todo-List-App)
+## Credit for [Design](https://dribbble.com/shots/6570568-Todo-List-App)
