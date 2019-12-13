@@ -3,12 +3,9 @@
 @import "./mixins";
 @import "./form";
 
-/* Base Design */
-
-html {
-    margin: 0px;
-}
+/* Base Attributes */
 
 .app {
     background-color: $backgroundColor;
+    margin: 0px;
 }
