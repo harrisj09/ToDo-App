@@ -61,6 +61,7 @@
   .app__form-wrapper {
     border-bottom: 2px solid #ABAFB3;
   }
+  /* Maybe use flexbox */
   .app__form {
     display: inline-block;
   }

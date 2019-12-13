@@ -1,6 +1,7 @@
 .app__form-wrapper {
     margin: 20px 10px 0px 10px;
     border-bottom: 2px solid #ABAFB3;
+
     .app__form--input {
         border-radius: 3px;
         padding: 5px 40px 5px 10px;
@@ -23,7 +24,8 @@
     .app__form-wrapper {
         border-bottom: 2px solid #ABAFB3;
     }
-
+    
+    /* Maybe use flexbox */
     .app__form {
         display: inline-block;
     }
