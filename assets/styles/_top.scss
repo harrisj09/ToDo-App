@@ -1,0 +1,26 @@
+.app__date {
+    font-family: $baseFont;
+    color: $textColorWhite;
+    font-size: $mobileSizeHeading;
+}
+
+.app__tasks-active {
+    font-family: $baseFont;
+    font-size: $mobileSizeParagraph;
+    color: $textColorBlue;
+}
+
+.app__tasks {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.app__tasks-state{
+    color: $textColorGrey;
+    cursor: pointer;
+}
+
+.app__tasks-state:hover {
+    color: $textColorWhite;
+}
