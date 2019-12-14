@@ -4,6 +4,6 @@ Client-side specific logic can go in the controller. In a bigger system, where t
 break it out into modules. The controller is the entry point for events and the only mediator between the view and data.
  */
 
-class todoController {
-
+class controller {
+    
 }

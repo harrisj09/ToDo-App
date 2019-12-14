@@ -81,6 +81,30 @@
   cursor: pointer;
 }
 
+.task__element {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 2px solid #ABAFB3;
+}
+
+.task__element--complete {
+  display: inline-block;
+}
+
+.task__element--complete {
+  display: inline-block;
+  border: 2px solid black;
+  width: 20px;
+  height: 20px;
+}
+
+.task__element--delete {
+  display: inline-block;
+  border: 2px solid black;
+  width: 20px;
+  height: 20px;
+}
+
 /* Base Attributes */
 .app {
   background-color: #393F49;
