@@ -1,11 +1,15 @@
 .app__date {
-    margin-left: 10px;
+    margin: 30px 0px 0px 20px;
     font-family: $baseFont;
     color: $textColorWhite;
     font-size: $mobileSizeHeading;
+    
 }
 
 .app__tasks-active {
+    margin-left: 20px;
+    position: relative;
+    bottom: 10px;
     font-family: $baseFont;
     font-size: $mobileSizeParagraph;
     color: $textColorBlue;
@@ -18,10 +22,24 @@
 }
 
 .app__tasks-state{
+    margin-left: 0px;
     color: $textColorGrey;
     cursor: pointer;
 }
 
 .app__tasks-state:hover {
     color: $textColorWhite;
+}
+
+@media only screen and (min-width: 600px)  {
+    .app__tasks {
+        position: absolute;
+        top: 30px;
+        right: 10px;
+    }
+    .app__tasks-state{
+        margin-left: 10px;
+        color: $textColorGrey;
+        cursor: pointer;
+    }
 }

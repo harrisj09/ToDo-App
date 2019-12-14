@@ -1,52 +1,27 @@
 .app__form-wrapper {
-    margin: 20px 10px 0px 10px;
+    margin: 20px 40px 0px 40px;
     border-bottom: 2px solid #ABAFB3;
+
+    .app__form {
+        margin-bottom: 30px;
+    }
 
     .app__form--input {
         border-radius: 3px;
-        padding: 5px 40px 5px 10px;
-        font-family: $baseFont;
+        padding: 5px 70px 5px 10px;
+        font-family: $formFont;
     }
     
     .app__form--submit {
+        display: inline-block;
         border-radius: 3px;
         margin-top: 10px;
         border: 2px solid $boxColorLightBlue;
         background-color: $boxColorLightBlue;
         text-align: center;
         width: 100px;
-        padding: 2px 0;
+        padding: 5px 0;
         font-size: $mobileSizeParagraph;
         cursor: pointer;
-    }
-}
-
-@media only screen and (min-width: 450px) {
-    .app__form-wrapper {
-        border-bottom: 2px solid #ABAFB3;
-    }
-
-    /* Maybe use flexbox */
-    .app__form {
-        display: inline-block;
-        .app__form--input {
-            display: inline-block;
-            border-radius: 3px;
-            padding: 5px 40px 5px 10px;
-            font-family: $baseFont;
-        }
-        
-        .app__form--submit {
-            display: inline-block;
-            border-radius: 3px;
-            margin: 10px 0px 15px 10px;
-            border: 2px solid $boxColorLightBlue;
-            background-color: $boxColorLightBlue;
-            text-align: center;
-            width: 100px;
-            padding: 5px 0;
-            font-size: $mobileSizeParagraph;
-            cursor: pointer;
-        }
     }
 }

@@ -12,33 +12,39 @@
         
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+        <!-- JS Files -->
+        <script src="assets/scripts/todoView.js"> </script>
+        <script src="assets/scripts/todoModel.js"> </script>
+        <script src="assets/scripts/todoController.js"> </script>
         
     </head>
     <body class="app">
-    <h3 class="app__date">Date goes here</h3>
-    <p class="app__date app__tasks-active"># Active Tasks</p>
+    <h3 class="app__date">Friday, December 13</h3>
+    <p class="app__tasks-active"># Active Tasks</p>
     <div class="app__tasks">
-    <p class="app__tasks-active app__tasks-state">Incomplete Tasks</p>
-    <p class="app__tasks-active app__tasks-state">Completed Tasks</p>
+    <p class="app__tasks-state">Incomplete Tasks</p>
+    <p class="app__tasks-state">Completed Tasks</p>
     </div>
     <div class="app__form-wrapper">
     <form class="app__form">
-        <input class="app__form--input" type="text" placeholder="Enter a task...">
-        <p class="app__date app__form--submit">
+
+        <label>
+            <input class="app__form--input" type="text" placeholder="Enter a task...">
+        </label>
+
+        <p class="app__date app__form--submit" onclick="test()">
                 Add Task
-            </p> 
+            </p>
     </form>
 
     </div>
 
     <div class="app__tasks--todo">
         
-
         </div>
 
 
     </body>
-    <!-- JS Files -->
-    <script src="assets/scripts/index.js"> </script>
-
     </html>
