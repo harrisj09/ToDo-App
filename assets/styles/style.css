@@ -2,6 +2,7 @@
 /* Fonts */
 /* Text Sizes */
 .app__date {
+  margin-left: 10px;
   font-family: "Poppins", sans-serif;
   color: white;
   font-size: 1.05rem;
@@ -53,6 +54,7 @@
   background-color: #1EB4F5;
   text-align: center;
   width: 100px;
+  padding: 2px 0;
   font-size: 0.75rem;
   cursor: pointer;
 }
@@ -65,13 +67,13 @@
   .app__form {
     display: inline-block;
   }
-  .app__form--input {
+  .app__form .app__form--input {
     display: inline-block;
     border-radius: 3px;
     padding: 5px 40px 5px 10px;
     font-family: "Poppins", sans-serif;
   }
-  .app__form--submit {
+  .app__form .app__form--submit {
     display: inline-block;
     border-radius: 3px;
     margin: 10px 0px 15px 10px;
@@ -79,6 +81,7 @@
     background-color: #1EB4F5;
     text-align: center;
     width: 100px;
+    padding: 5px 0;
     font-size: 0.75rem;
     cursor: pointer;
   }

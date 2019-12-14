@@ -15,6 +15,7 @@
         background-color: $boxColorLightBlue;
         text-align: center;
         width: 100px;
+        padding: 2px 0;
         font-size: $mobileSizeParagraph;
         cursor: pointer;
     }
@@ -28,23 +29,24 @@
     /* Maybe use flexbox */
     .app__form {
         display: inline-block;
-    }
         .app__form--input {
-        display: inline-block;
-        border-radius: 3px;
-        padding: 5px 40px 5px 10px;
-        font-family: $baseFont;
-    }
-    
-    .app__form--submit {
-        display: inline-block;
-        border-radius: 3px;
-        margin: 10px 0px 15px 10px;
-        border: 2px solid $boxColorLightBlue;
-        background-color: $boxColorLightBlue;
-        text-align: center;
-        width: 100px;
-        font-size: $mobileSizeParagraph;
-        cursor: pointer;
+            display: inline-block;
+            border-radius: 3px;
+            padding: 5px 40px 5px 10px;
+            font-family: $baseFont;
+        }
+        
+        .app__form--submit {
+            display: inline-block;
+            border-radius: 3px;
+            margin: 10px 0px 15px 10px;
+            border: 2px solid $boxColorLightBlue;
+            background-color: $boxColorLightBlue;
+            text-align: center;
+            width: 100px;
+            padding: 5px 0;
+            font-size: $mobileSizeParagraph;
+            cursor: pointer;
+        }
     }
 }
