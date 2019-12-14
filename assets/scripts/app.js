@@ -1,10 +1,10 @@
-import TodoModel from './TodoModel.js';
+/*import TodoModel from './TodoModel.js';
 import TodoView from './TodoView.js';
 import TodoController from './TodoController.js';
 
 const todoController = new TodoController(new TodoModel, new TodoView);
 
-todoController.init();
+todoController.init();*/
 
 /*
 CSS that will be incremented into DOM
@@ -15,3 +15,42 @@ CSS that will be incremented into DOM
             </div>
 
  */
+
+// other classes are commented out until i go back and refactor the code to add OOP and design pattern
+/*
+CODE IS VERY MESSY!!!
+ */
+
+//const incompleteTasks = document.querySelector("#incomplete");
+//const completeTasks = document.querySelector("#complete");
+const submit = document.querySelector(".app__form--submit");
+const textInput = document.querySelector(".app__form--input").value;
+const tasksDisplay = document.querySelector(".tasks__wrapper");
+const errorMessage = document.querySelector(".app__error");
+
+const todoArray = [];
+
+submit.addEventListener("click", function(){
+    const textInput = document.querySelector(".app__form--input").value;
+    if(textInput.length > 0) {
+        storeString(textInput);
+        errorMessage.innerHTML = "";
+    }
+    else {
+        errorMessage.innerHTML = "Invalid input! String is blank!";
+    }
+});
+
+function storeString(string) {
+    //push array
+    todoArray.push(string);
+    htmlRewrite();
+}
+
+function htmlRewrite() {
+    const html = ``;
+
+}
+
+//incompleteTasks.addEventListener("click", );
+//completeTasks.addEventListener("click", );

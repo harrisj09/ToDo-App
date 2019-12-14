@@ -20,6 +20,7 @@ The view’s prime directive is to change the state of what the user sees on the
 
 
 }*/
+/*
 
 const incompleteTasks = document.querySelector("#incomplete");
 const completeTasks = document.querySelector("#complete");
@@ -27,11 +28,11 @@ const submit = document.querySelector(".app__form--submit");
 const textInput = document.querySelector(".app__form--input").value;
 const tasksDisplay = document.querySelector(".tasks__wrapper");
 
-/*
+/!*
 submit.addEventListener("click", );
 incompleteTasks.addEventListener("click", );
 completeTasks.addEventListener("click", ;
-*/
+*!/
 
 
 class TodoView {
@@ -62,4 +63,4 @@ class TodoView {
     }
 }
 
-export default TodoView;
+export default TodoView;*/
