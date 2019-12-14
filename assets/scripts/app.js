@@ -24,7 +24,6 @@ CODE IS VERY MESSY!!!
 //const incompleteTasks = document.querySelector("#incomplete");
 //const completeTasks = document.querySelector("#complete");
 const submit = document.querySelector(".app__form--submit");
-const textInput = document.querySelector(".app__form--input").value;
 const tasksDisplay = document.querySelector(".tasks__wrapper");
 const errorMessage = document.querySelector(".app__error");
 
@@ -32,9 +31,10 @@ const todoArray = [];
 let html = ``;
 
 submit.addEventListener("click", function(){
-    const textInput = document.querySelector(".app__form--input").value;
+    let textInput = document.querySelector(".app__form--input").value;
     if(textInput.length > 0) {
         storeString(textInput);
+        textInput = '';
         errorMessage.innerHTML = "";
     }
     else {
@@ -45,20 +45,19 @@ submit.addEventListener("click", function(){
 function storeString(string) {
     //push array
     todoArray.push(string);
-    tasksDisplay.innerHTML = ``;
-
+    html = ``;
     htmlRewrite();
     //add foreach loop
     todoArray.forEach(htmlRewrite);
     tasksDisplay.innerHTML = html;
 }
 
-function htmlRewrite(index) {
-
+function htmlRewrite() {
+//increments all indexes into the array for DOM
     html += `
         <div class="task__element">
             <div class="task__element--complete"> </div>
-            <p class="task__desc">${todoArray[index]}</p>
+            <p class="task__desc">${todoArray}</p>
             <div class="task__element--delete"> 
             </div>
     `;
