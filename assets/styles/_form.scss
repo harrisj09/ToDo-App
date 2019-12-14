@@ -20,11 +20,11 @@
     }
 }
 
-@media only screen and (min-width: 450px) and (max-width: 900px) {
+@media only screen and (min-width: 450px) {
     .app__form-wrapper {
         border-bottom: 2px solid #ABAFB3;
     }
-    
+
     /* Maybe use flexbox */
     .app__form {
         display: inline-block;
