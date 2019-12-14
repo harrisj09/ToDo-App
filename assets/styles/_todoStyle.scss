@@ -1,5 +1,7 @@
-
 .task__element {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     border-bottom: 2px solid $textColorGrey;
 }
 

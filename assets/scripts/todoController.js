@@ -1,9 +1,30 @@
-/*
-works out what happens when the user performs an action (for example, clicking on a button or pressing a key).
-Client-side specific logic can go in the controller. In a bigger system, where there is a lot going on, you can
-break it out into modules. The controller is the entry point for events and the only mediator between the view and data.
- */
+class TodoController {
+    constructor(model, view) {
+        this.model = model;
+        this.view = view;
+    }
 
-class controller {
-    
+    init() {
+        this.renderTodos();
+        this.view.onAddTodo(data => this.addTodo(data));
+    }
+
+    renderTodos() {
+        const todos = this.model.todos_all();
+        this.view.renderTodos(todos);
+    }
+
+    addTodo(text) {
+        this.model.todos_create(text);
+        this.updateList();
+    }
+
+
+    // To this day I still think this belongs in view, but oh wwell.
+    updateList() {
+        const todos = this.model.todos_all();
+        this.view.renderTodos(todos);
+    }
 }
+
+export default TodoController;

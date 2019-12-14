@@ -20,3 +20,32 @@ class viewHandler {
 
 
 }
+
+
+class TodoView {
+    constructor() {
+        this.UI = {
+            input: document.getElementById('todo-input'),
+            addBtn: document.getElementById('add-todo'),
+            list: document.getElementById('todos-list')
+        }
+    }
+
+    renderTodos(tasks) {
+        let html = '';
+        tasks.forEach(task => {
+            html += `<li id="${task.id}">${task.title}</li>`;
+        });
+        this.UI.list.innerHTML = html;
+    }
+
+    onAddTodo(callback) {
+        this.UI.addBtn.addEventListener('click', e => {
+            e.preventDefault();
+            const textData = this.UI.input.value;
+            callback(textData);
+        });
+    }
+}
+
+export default TodoView;

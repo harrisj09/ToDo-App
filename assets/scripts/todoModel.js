@@ -15,3 +15,38 @@ submit.addEventListener("click", );
 incompleteTasks.addEventListener("click", );
 completeTasks.addEventListener("click", ;
 */
+
+class TodoModel {
+    constructor() {
+        this.todos = [{
+            id: 1,
+            title: 'Some stuff',
+            completed: false
+        },
+        {
+            id: 2,
+            title: 'Send pictures',
+            completed: true
+        },
+        {
+            id: 3,
+            title: 'Finish todo project',
+            completed: false
+        }
+        ]
+    }
+
+    todos_all() {
+        return this.todos;
+    }
+
+    todos_create(title, completed = false) {
+        this.todos.push({
+            id: this.todos.length + 1,
+            title,
+            completed
+        });
+    }
+}
+
+export default TodoModel;
