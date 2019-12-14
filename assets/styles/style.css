@@ -2,14 +2,14 @@
 /* Fonts */
 /* Text Sizes */
 .app__date {
-  margin: 30px 0px 0px 20px;
+  margin: 30px 0px 0px 30px;
   font-family: "Source Sans Pro", sans-serif;
   color: white;
   font-size: 0.95rem;
 }
 
 .app__tasks-active {
-  margin-left: 20px;
+  margin-left: 30px;
   position: relative;
   bottom: 10px;
   font-family: "Source Sans Pro", sans-serif;
@@ -30,13 +30,13 @@
           justify-content: space-evenly;
 }
 
-.app__tasks-state {
+.app__tasks--state {
   margin-left: 0px;
   color: #ABAFB3;
   cursor: pointer;
 }
 
-.app__tasks-state:hover {
+.app__tasks--state:hover {
   color: white;
 }
 
@@ -44,10 +44,10 @@
   .app__tasks {
     position: absolute;
     top: 30px;
-    right: 10px;
+    right: 30px;
   }
-  .app__tasks-state {
-    margin-left: 10px;
+  .app__tasks--state {
+    margin-left: 50px;
     color: #ABAFB3;
     cursor: pointer;
   }
