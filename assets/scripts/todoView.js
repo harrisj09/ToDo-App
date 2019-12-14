@@ -4,13 +4,13 @@ In MVC, no other part cares about changing the DOM except for the view. The view
 The view’s prime directive is to change the state of what the user sees on the screen.
  */
 
-class viewHandler {
+/*class viewHandler {
     constructor(html) {
-        /* 
+        /!*
         Instance variables here will recieve the htmlRewrite variable and then invoke a function
         to perform DOM and display htmlRewrite string
         - Instance variable here is just gonna be an array of objects contaning strings
-        */
+        *!/
         this.html = html;
     }
 
@@ -19,15 +19,29 @@ class viewHandler {
     }
 
 
-}
+}*/
+
+const incompleteTasks = document.querySelector("#incomplete");
+const completeTasks = document.querySelector("#complete");
+const submit = document.querySelector(".app__form--submit");
+const textInput = document.querySelector(".app__form--input").value;
+const tasksDisplay = document.querySelector(".tasks__wrapper");
+
+/*
+submit.addEventListener("click", );
+incompleteTasks.addEventListener("click", );
+completeTasks.addEventListener("click", ;
+*/
 
 
 class TodoView {
+    //This constructor takes in the string if it passes the if statement (length > 0) create push this into an array then call functions that carry out the rest
     constructor() {
         this.UI = {
-            input: document.getElementById('todo-input'),
+            input: document.querySelector('.task__desc'),
             addBtn: document.getElementById('add-todo'),
-            list: document.getElementById('todos-list')
+            list: document.querySelector('.task__element')
+
         }
     }
 
