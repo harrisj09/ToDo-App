@@ -29,6 +29,7 @@ const tasksDisplay = document.querySelector(".tasks__wrapper");
 const errorMessage = document.querySelector(".app__error");
 
 const todoArray = [];
+let html = ``;
 
 submit.addEventListener("click", function(){
     const textInput = document.querySelector(".app__form--input").value;
@@ -44,12 +45,23 @@ submit.addEventListener("click", function(){
 function storeString(string) {
     //push array
     todoArray.push(string);
+    tasksDisplay.innerHTML = ``;
+
     htmlRewrite();
+    //add foreach loop
+    todoArray.forEach(htmlRewrite);
+    tasksDisplay.innerHTML = html;
 }
 
-function htmlRewrite() {
-    const html = ``;
+function htmlRewrite(index) {
 
+    html += `
+        <div class="task__element">
+            <div class="task__element--complete"> </div>
+            <p class="task__desc">${todoArray[index]}</p>
+            <div class="task__element--delete"> 
+            </div>
+    `;
 }
 
 //incompleteTasks.addEventListener("click", );
