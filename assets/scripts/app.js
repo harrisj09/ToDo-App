@@ -16,26 +16,35 @@ CSS that will be incremented into DOM
 
  */
 
-// other classes are commented out until i go back and refactor the code to add OOP and design pattern
+// other classes are commented out until i go back and refactor the code to add design pattern
 /*
 CODE IS VERY MESSY
  */
 
 //const incompleteTasks = document.querySelector("#incomplete");
 //const completeTasks = document.querySelector("#complete");
+
+let date = new Date();
+
+date = `${String(date.getDate()).padStart(2, '0')} / ${String(date.getMonth() + 1).padStart(2, '0')} / ${date.getFullYear()}`;
+
+document.querySelector(".app__date").innerHTML = date;
+
+//target
 const submit = document.querySelector(".app__form--submit");
-const textInput = document.querySelector(".app__form--input").value;
 const tasksDisplay = document.querySelector(".tasks__wrapper");
 const errorMessage = document.querySelector(".app__error");
 
 const todoArray = [];
 let html = ``;
 
+
 submit.addEventListener("click", function(){
     const textInput = document.querySelector(".app__form--input").value;
     if(textInput.length > 0) {
         storeString(textInput);
         errorMessage.innerHTML = "";
+        document.querySelector(".app__form--input").reset();
     }
     else {
         errorMessage.innerHTML = "Invalid input! String is blank!";
@@ -45,6 +54,7 @@ submit.addEventListener("click", function(){
 function storeString(string) {
     //push array
     todoArray.push(string);
+    document.querySelector(".app__tasks-active").innerHTML = `${todoArray.length} Active Tasks`;
     html = ``;
     //add foreach loop
     todoArray.forEach(htmlRewrite);
