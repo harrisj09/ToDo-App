@@ -84,16 +84,17 @@ function completeTask() {
 
 //have an onclick in the html and send the HTML element and string of task in
 function deleteTask() {
-
+    //use data attributes
+    //delete the index that corresponds with the data attribute
 }
 
-function htmlRewrite(todoArray) {
+function htmlRewrite(todoArray, index) {
 
     html += `
         <div>
-               <div class="task__element">
+               <div class="task__element" data-task="${index}">
                 <div class="task__element--complete">Completed</div>
-                <p class="task__desc">${todoArray}</p>
+                <p class="task__desc">${todoArray} ${index}</p>
                 <div class="task__element--complete task__element--delete">Delete</div>
             </div>
         </div>
