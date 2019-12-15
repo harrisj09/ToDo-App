@@ -112,16 +112,23 @@
 
 .task__element--complete {
   display: inline-block;
-  border: 2px solid black;
-  width: 20px;
-  height: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.task__element--complete:hover {
+  display: inline-block;
+  color: green;
 }
 
 .task__element--delete {
   display: inline-block;
-  border: 2px solid black;
-  width: 20px;
-  height: 20px;
+  cursor: pointer;
+}
+
+.task__element--delete:hover {
+  display: inline-block;
+  color: red;
 }
 
 /* Base Attributes */

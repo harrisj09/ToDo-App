@@ -17,6 +17,8 @@ CSS that will be incremented into DOM
  */
 
 // other classes are commented out until i go back and refactor the code to add design pattern
+
+
 /*
 CODE IS VERY MESSY
  */
@@ -30,6 +32,9 @@ date = `${String(date.getDate()).padStart(2, '0')} / ${String(date.getMonth() + 
 
 document.querySelector(".app__date").innerHTML = date;
 
+
+let hasTaskBeenCreated = false;
+
 //target
 const submit = document.querySelector(".app__form--submit");
 const tasksDisplay = document.querySelector(".tasks__wrapper");
@@ -38,6 +43,18 @@ const errorMessage = document.querySelector(".app__error");
 const todoArray = [];
 let html = ``;
 
+//Find a way to have this be checked every time
+if(todoArray.length > 0) {
+    const finished = document.querySelector(".task__element--complete");
+    const deleteTask = document.querySelector(".task__element--delete");
+    finished.addEventListener("click", function() {
+        console.log("finished task");
+    });
+
+    deleteTask.addEventListener("click", function() {
+        console.log("deleted task");
+    });
+}
 
 submit.addEventListener("click", function(){
     const textInput = document.querySelector(".app__form--input").value;
@@ -52,11 +69,10 @@ submit.addEventListener("click", function(){
 });
 
 function storeString(string) {
-    //push array
     todoArray.push(string);
     document.querySelector(".app__tasks-active").innerHTML = `${todoArray.length} Active Tasks`;
+    hasTaskBeenCreated = true;
     html = ``;
-    //add foreach loop
     todoArray.forEach(htmlRewrite);
     tasksDisplay.innerHTML = html;
 }
@@ -65,15 +81,11 @@ function htmlRewrite(todoArray, index) {
 
     html += `
         <div>
-        <!--<img class="task__element" src="../images/checkmark.png">-->
                <div class="task__element">
-                <div class="task__element--complete"> </div>
+                <div class="task__element--complete">Completed</div>
                 <p class="task__desc">${todoArray}</p>
-                <div class="task__element--complete"> </div>
+                <div class="task__element--complete task__element--delete">Delete</div>
             </div>
         </div>
     `;
 }
-
-//incompleteTasks.addEventListener("click", );
-//completeTasks.addEventListener("click", );
