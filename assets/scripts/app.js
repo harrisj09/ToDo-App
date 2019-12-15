@@ -44,7 +44,7 @@ submit.addEventListener("click", function(){
     if(textInput.length > 0) {
         storeString(textInput);
         errorMessage.innerHTML = "";
-        document.querySelector(".app__form--input").reset();
+        //document.querySelector(".app__form--input").reset();
     }
     else {
         errorMessage.innerHTML = "Invalid input! String is blank!";
@@ -65,10 +65,11 @@ function htmlRewrite(todoArray, index) {
 
     html += `
         <div>
-        <img class="task__element--complete" src="assets/images/checkmark.png" alt="Completed?">
+        <!--<img class="task__element" src="../images/checkmark.png">-->
+               <div class="task__element">
                 <div class="task__element--complete"> </div>
                 <p class="task__desc">${todoArray}</p>
-               <div class="task__element">
+                <div class="task__element--complete"> </div>
             </div>
         </div>
     `;
