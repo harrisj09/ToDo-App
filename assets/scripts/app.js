@@ -18,12 +18,13 @@ CSS that will be incremented into DOM
 
 // other classes are commented out until i go back and refactor the code to add OOP and design pattern
 /*
-CODE IS VERY MESSY!!!
+CODE IS VERY MESSY
  */
 
 //const incompleteTasks = document.querySelector("#incomplete");
 //const completeTasks = document.querySelector("#complete");
 const submit = document.querySelector(".app__form--submit");
+const textInput = document.querySelector(".app__form--input").value;
 const tasksDisplay = document.querySelector(".tasks__wrapper");
 const errorMessage = document.querySelector(".app__error");
 
@@ -31,10 +32,9 @@ const todoArray = [];
 let html = ``;
 
 submit.addEventListener("click", function(){
-    let textInput = document.querySelector(".app__form--input").value;
+    const textInput = document.querySelector(".app__form--input").value;
     if(textInput.length > 0) {
         storeString(textInput);
-        textInput = '';
         errorMessage.innerHTML = "";
     }
     else {
@@ -46,20 +46,21 @@ function storeString(string) {
     //push array
     todoArray.push(string);
     html = ``;
-    htmlRewrite();
     //add foreach loop
     todoArray.forEach(htmlRewrite);
     tasksDisplay.innerHTML = html;
 }
 
-function htmlRewrite() {
-//increments all indexes into the array for DOM
+function htmlRewrite(todoArray, index) {
+
     html += `
-        <div class="task__element">
-            <div class="task__element--complete"> </div>
-            <p class="task__desc">${todoArray}</p>
-            <div class="task__element--delete"> 
+        <div>
+        <img class="task__element--complete" src="assets/images/checkmark.png" alt="Completed?">
+                <div class="task__element--complete"> </div>
+                <p class="task__desc">${todoArray}</p>
+               <div class="task__element">
             </div>
+        </div>
     `;
 }
 
