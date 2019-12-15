@@ -77,7 +77,17 @@ function storeString(string) {
     tasksDisplay.innerHTML = html;
 }
 
-function htmlRewrite(todoArray, index) {
+//have an onclick in the html and send the HTML element and string of task in
+function completeTask() {
+
+}
+
+//have an onclick in the html and send the HTML element and string of task in
+function deleteTask() {
+
+}
+
+function htmlRewrite(todoArray) {
 
     html += `
         <div>
