@@ -4,13 +4,13 @@ In MVC, no other part cares about changing the DOM except for the view. The view
 The view’s prime directive is to change the state of what the user sees on the screen.
  */
 
-/*class viewHandler {
+class viewHandler {
     constructor(html) {
-        /!*
+        /*
         Instance variables here will recieve the htmlRewrite variable and then invoke a function
         to perform DOM and display htmlRewrite string
         - Instance variable here is just gonna be an array of objects contaning strings
-        *!/
+        */
         this.html = html;
     }
 
@@ -19,8 +19,8 @@ The view’s prime directive is to change the state of what the user sees on the
     }
 
 
-}*/
-/*
+}
+
 
 const incompleteTasks = document.querySelector("#incomplete");
 const completeTasks = document.querySelector("#complete");
@@ -28,11 +28,11 @@ const submit = document.querySelector(".app__form--submit");
 const textInput = document.querySelector(".app__form--input").value;
 const tasksDisplay = document.querySelector(".tasks__wrapper");
 
-/!*
+/*
 submit.addEventListener("click", );
 incompleteTasks.addEventListener("click", );
 completeTasks.addEventListener("click", ;
-*!/
+*/
 
 
 class TodoView {
@@ -63,4 +63,4 @@ class TodoView {
     }
 }
 
-export default TodoView;*/
+export default TodoView;
