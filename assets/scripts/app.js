@@ -35,8 +35,10 @@ btn.addEventListener(`click`, () => {
       const holder = event.target;
       const clickedText = holder.innerHTML;
       if (classList.contains("task__holder--complete")) {
+        const clickedIndex = event.target.dataset.complete;
         $(`Completed`);
         //delete this for now but change it be sent to a different function and then delete it in setArraySize
+        setCompletedTasks(todoArray, clickedIndex);
         setArraySize(todoArray, clickedIndex);
       } 
       else if(classList.contains("task__holder--delete")) {
@@ -60,8 +62,11 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
-  function getCompletedTasks() {
-
+  function setCompletedTasks(array, index) {
+      //bug deletes two instead of only 1 
+    completeArray.push(array[index]);
+    $(completeArray.toString());
+    setArraySize(todoArray, index)
   }
 
   function setArraySize(array, index) {
