@@ -1,8 +1,8 @@
-.task__element {
+.task__holder {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    border-bottom: 2px solid $textColorGrey;
+    border-bottom: 4px solid $textColorGrey;
     margin: 20px 40px 0px 40px;
 }
 
@@ -12,27 +12,19 @@
     font-size: $mobileSizeHeading;
 }
 
-.task__element--complete{
-    display: inline-block;
-}
-
-.task__element--complete {
-    display: inline-block;
+.task__holder--complete {
     color: $textColorWhite;
     cursor: pointer;
 }
 
-.task__element--complete:hover {
-    display: inline-block;
+.task__holder--complete:hover {
     color: $textColorGreen;
 }
 
-.task__element--delete {
-    display: inline-block;
+.task__holder--delete {
     cursor: pointer;
 }
 
-.task__element--delete:hover {
-    display: inline-block;
+.task__holder--delete:hover {
     color: $textColorRed;
 }

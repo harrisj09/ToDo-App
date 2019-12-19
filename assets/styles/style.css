@@ -87,16 +87,17 @@
   cursor: pointer;
 }
 
-.task__element {
+.task__holder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 2px solid #ABAFB3;
+  border-bottom: 4px solid #ABAFB3;
   margin: 20px 40px 0px 40px;
 }
 
@@ -106,28 +107,20 @@
   font-size: 0.95rem;
 }
 
-.task__element--complete {
-  display: inline-block;
-}
-
-.task__element--complete {
-  display: inline-block;
+.task__holder--complete {
   color: white;
   cursor: pointer;
 }
 
-.task__element--complete:hover {
-  display: inline-block;
+.task__holder--complete:hover {
   color: green;
 }
 
-.task__element--delete {
-  display: inline-block;
+.task__holder--delete {
   cursor: pointer;
 }
 
-.task__element--delete:hover {
-  display: inline-block;
+.task__holder--delete:hover {
   color: red;
 }
 

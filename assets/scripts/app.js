@@ -27,20 +27,20 @@ app2.addEventListener("click", event => {
     dataset: { text: value }
   } = event.target;
   //grabbing text
-  const element = event.target;
-  const clickedText = element.innerHTML;
+  const holder = event.target;
+  const clickedText = holder.innerHTML;
   if (classList.contains("title")) {
     $(`${titleArray.indexOf(clickedText)} array index of clicked text`);
     //use else if
   } else {
-    const clickedIndex = event.target.dataset.box;
+    const clickedIndex = event.target.dataset.holder;
     //Both Work
     $(
       `${
-        element.attributes.getNamedItem("data-box").value
+        holder.attributes.getNamedItem("data-holder").value
       } data attribute of button`
     );
-    $(event.target.dataset.box);
+    $(event.target.dataset.holder);
     resizeArray(titleArray, clickedIndex);
   }
 });
@@ -49,10 +49,10 @@ function htmlRewrite(index) {
   $(number);
   html += `
  <div>
-    <div class="task__element" data-task="${index}">
-        <div class="task__element--complete">Completed</div>
+    <div class="task__holder" data-task="${index}">
+        <div class="task__holder--complete">Completed</div>
             <p class="task__desc">${todoArray} ${index}</p>
-            <div class="task__element--complete task__element--delete">Delete</div>
+            <div class="task__holder--complete task__holder--delete">Delete</div>
         </div>
     </div>
   `;
@@ -74,21 +74,36 @@ function resizeArray(array, index) {
 
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
+const userInput = document.querySelector(".app__form--input");
 const tasksSection = document.querySelector(".tasks__wrapper");
-const inputString = document.querySelector(".app__form--submit");
 const todoArray = [];
 let pressed = 0;
 let html = ``;
-let number = 0;
+let counter = 0;
 
 btn.addEventListener(`click`, () => {
-    inputString.value = ``;  
-    todoArray.push(inputString);
+    todoArray.push(userInput.value);
+    userInput.value = ``;  
     $(`${todoArray[pressed]}`);
-    //html = ``;
-    //number = 0;
-    //titleArray.forEach(htmlRewrite);
+    html = ``;
+    counter = 0;
+    todoArray.forEach(htmlRewrite);
     $(html);
-    //app2.innerHTML = html;
+    tasksSection.innerHTML = html;
     pressed++;
   });
+
+  function htmlRewrite(index) {
+    html += `
+    <div>
+    <div class="task__holder" data-task="${counter}">
+        <div class="task__holder task__holder--complete" data-complete="${counter}>Completed</div>
+            <p class="task__desc">${index}</p>
+            <div class="task__holder task__holder--delete" data-delete="${counter}">Delete</div>
+            </div>
+            </div>
+      </div>
+    `;
+    index++;
+    counter++;
+  }
