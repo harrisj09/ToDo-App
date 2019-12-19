@@ -1,6 +1,7 @@
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");
+const errorElement = document.querySelector(".app__error");
 const todoArray = [];
 const completeArray = [];
 let activeTasks = document.querySelector(".app__tasks-active");
@@ -13,6 +14,9 @@ const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.lengt
 btn.addEventListener(`click`, () => {
     const userInput = document.querySelector(".app__form--input");
     const finalInput = userInput.value;
+    const isInputLongEnough = (Boolean(finalInput.length));
+    if(isInputLongEnough) {
+    errorElement.innerHTML = ``;
     todoArray.push(finalInput);
     $(`${todoArray[pressed]}`);
     userInput.value = ``;  
@@ -24,6 +28,10 @@ btn.addEventListener(`click`, () => {
     getActiveTasks();
     pressed++;
     $(todoArray.toString());
+    }
+    else {
+        errorElement.innerHTML = `String is Not Long Enough!`;
+    } 
   });
 
   tasksSection.addEventListener('click', event => {
