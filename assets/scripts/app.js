@@ -84,8 +84,9 @@ let counter = 0;
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
 
 btn.addEventListener(`click`, () => {
-    let userInput = document.querySelector(".app__form--input");
-    todoArray.push(userInput.innerHTML);
+    const userInput = document.querySelector(".app__form--input");
+    const finalInput = userInput.value;
+    todoArray.push(finalInput);
     $(`${todoArray[pressed]}`);
     userInput.value = ``;  
     html = ``;
@@ -98,16 +99,50 @@ btn.addEventListener(`click`, () => {
     $(todoArray.toString());
   });
 
-  function htmlRewrite(index) {
+  tasksSection.addEventListener('click', event => {
+    const {
+        classList,
+        dataset: { text: value }
+      } = event.target;
+      //grabbing text
+      const holder = event.target;
+      const clickedText = holder.innerHTML;
+      if (classList.contains("task__holder--complete")) {
+        $(`${todoArray.indexOf(clickedText)}Completed`);
+        //use else if
+      } 
+      else if(classList.contains("task__holder--delete")) {
+        const clickedIndex = event.target.dataset.holder;
+        //Both Work
+        $(
+          `${holder.attributes.getNamedItem("data-delete").value}
+           data attribute of delete`
+        );
+        $(event.target.dataset.holder);
+        setArraySize(todoArray, clickedIndex);
+      }
+  });
+
+  function htmlRewrite() {
     html += `
     <div>
     <div class="task__holder">
         <div class="task__holder--complete" data-complete="${counter}">Completed</div>
-            <p class="task__desc">${todoArray[index]}</p>
-            <div class=" task__holder--delete" data-delete="${counter}">Delete</div>
+            <p class="task__desc">${todoArray[counter]}</p>
+            <div class="task__holder--delete" data-delete="${counter}">Delete</div>
         </div>
       </div>
     `;
-    index++;
     counter++;
+  }
+
+  function setArraySize(array, index) {
+    array.splice(index, 1);
+    $(array);
+    //calling dom
+    html = ``;
+    counter = 0;
+    todoArray.forEach(htmlRewrite);
+    $(html);
+    tasksSection.innerHTML = html;
   }
