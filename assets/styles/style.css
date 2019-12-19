@@ -125,6 +125,15 @@
   color: red;
 }
 
+.credit__text {
+  color: white;
+  text-align: center;
+}
+
+.credit__text--github {
+  color: #ABAFB3;
+}
+
 /* Base Attributes */
 .app {
   background-color: #393F49;
