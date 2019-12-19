@@ -74,34 +74,38 @@ function resizeArray(array, index) {
 
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
-const userInput = document.querySelector(".app__form--input");
 const tasksSection = document.querySelector(".tasks__wrapper");
 const todoArray = [];
+let activeTasks = document.querySelector(".app__tasks-active");
 let pressed = 0;
 let html = ``;
 let counter = 0;
 
+const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
+
 btn.addEventListener(`click`, () => {
-    todoArray.push(userInput.value);
-    userInput.value = ``;  
+    let userInput = document.querySelector(".app__form--input");
+    todoArray.push(userInput.innerHTML);
     $(`${todoArray[pressed]}`);
+    userInput.value = ``;  
     html = ``;
     counter = 0;
     todoArray.forEach(htmlRewrite);
     $(html);
     tasksSection.innerHTML = html;
+    getActiveTasks();
     pressed++;
+    $(todoArray.toString());
   });
 
   function htmlRewrite(index) {
     html += `
     <div>
-    <div class="task__holder" data-task="${counter}">
-        <div class="task__holder task__holder--complete" data-complete="${counter}>Completed</div>
-            <p class="task__desc">${index}</p>
-            <div class="task__holder task__holder--delete" data-delete="${counter}">Delete</div>
-            </div>
-            </div>
+    <div class="task__holder">
+        <div class="task__holder--complete" data-complete="${counter}">Completed</div>
+            <p class="task__desc">${todoArray[index]}</p>
+            <div class=" task__holder--delete" data-delete="${counter}">Delete</div>
+        </div>
       </div>
     `;
     index++;

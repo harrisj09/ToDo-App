@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 4px solid $textColorGrey;
+    border-bottom: 3px solid $textColorGrey;
     margin: 20px 40px 0px 40px;
 }
 
@@ -22,6 +22,7 @@
 }
 
 .task__holder--delete {
+    color: $textColorWhite;
     cursor: pointer;
 }
 
