@@ -63,7 +63,7 @@ btn.addEventListener(`click`, () => {
   }
 
   function setCompletedTasks(array, index) {
-      //bug deletes two instead of only 1 
+    //bug deletes two instead of only 1 
     completeArray.push(array[index]);
     $(completeArray.toString());
     setArraySize(todoArray, index)
