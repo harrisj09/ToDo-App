@@ -4,6 +4,7 @@ const tasksSection = document.querySelector(".tasks__wrapper");
 const errorElement = document.querySelector(".app__error");
 const todoArray = [];
 const completeArray = [];
+const changeTaskDisplays = document.querySelectorAll('.app__tasks--state');
 let activeTasks = document.querySelector(".app__tasks-active");
 let pressed = 0;
 let html = ``;
@@ -20,8 +21,8 @@ btn.addEventListener(`click`, () => {
     todoArray.push(finalInput);
     $(`${todoArray[pressed]}`);
     userInput.value = ``;  
-    html = ``;
-    counter = 0;
+    setHtml();
+    setCounter();
     todoArray.forEach(htmlRewrite);
     $(html);
     tasksSection.innerHTML = html;
@@ -47,7 +48,6 @@ btn.addEventListener(`click`, () => {
         $(`Completed`);
         //delete this for now but change it be sent to a different function and then delete it in setArraySize
         setCompletedTasks(todoArray, clickedIndex);
-        setArraySize(todoArray, clickedIndex);
       } 
       else if(classList.contains("task__holder--delete")) {
         const clickedIndex = event.target.dataset.delete;
@@ -56,7 +56,7 @@ btn.addEventListener(`click`, () => {
       }
   });
 
-  //incomplete list
+  //Rewrite function to display both. It must take in a parameter this could probably just be an arrow function
   function htmlRewrite() {
     html += `
     <div>
@@ -70,6 +70,14 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
+  function setCounter() {
+    counter = 0;
+  }
+
+  function setHtml() {
+    html = ``;
+  }
+
   function setCompletedTasks(array, index) {
     //bug deletes two instead of only 1 
     completeArray.push(array[index]);
@@ -81,7 +89,7 @@ btn.addEventListener(`click`, () => {
     array.splice(index, 1);
     $(array);
     //calling dom
-    html = ``;
+    setHtml();
     counter = 0;
     todoArray.forEach(htmlRewrite);
     $(html);
