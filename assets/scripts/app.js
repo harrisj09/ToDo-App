@@ -1,16 +1,39 @@
+/*
+  BROKEN
+
+  - Something is wrong with counter
+*/
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");
 const errorElement = document.querySelector(".app__error");
 const todoArray = [];
 const completeArray = [];
-const changeTaskDisplays = document.querySelectorAll('.app__tasks--state');
+const displayIncompleteTasks = document.querySelector('#incomplete');
+const displayCompleteTasks = document.querySelector('#complete');
 let activeTasks = document.querySelector(".app__tasks-active");
 let pressed = 0;
 let html = ``;
 let counter = 0;
+let display = false;
 
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
+
+displayIncompleteTasks.addEventListener('click', () => {
+  $("clicked");
+  setHtml();
+  setCounter();
+  todoArray.forEach(htmlRewrite);
+  tasksSection.innerHTML = html;
+}); 
+
+displayCompleteTasks.addEventListener('click', () => {
+  $("clicked");
+  setHtml();
+  setCounter();
+  completeArray.forEach(completeTaskDisplay);
+  tasksSection.innerHTML = html;
+}); 
 
 btn.addEventListener(`click`, () => {
     const userInput = document.querySelector(".app__form--input");
@@ -23,7 +46,7 @@ btn.addEventListener(`click`, () => {
     userInput.value = ``;  
     setHtml();
     setCounter();
-    todoArray.forEach(htmlRewrite);
+    todoArray.forEach(completeTaskDisplay);
     $(html);
     tasksSection.innerHTML = html;
     getActiveTasks();
@@ -34,6 +57,8 @@ btn.addEventListener(`click`, () => {
         errorElement.innerHTML = `String is Not Long Enough!`;
     } 
   });
+
+
 
   tasksSection.addEventListener('click', event => {
     const {
@@ -67,6 +92,20 @@ btn.addEventListener(`click`, () => {
         </div>
       </div>
     `;
+    counter++;
+  }
+
+  //will be deleted eventually, but is here for testing
+  function completeTaskDisplay() {
+    html += `
+    <div>
+    <div class="task__holder">
+        <div class="task__holder--complete" data-complete="${counter}">Completed</div>
+            <p class="task__desc">${completeArray[counter]}</p>
+            <div class="task__holder--delete" data-delete="${counter}">Delete</div>
+        </div>
+      </div>
+    `
     counter++;
   }
 
