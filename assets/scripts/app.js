@@ -1,7 +1,7 @@
 /*
   BROKEN
 
-  - Something is wrong with counter
+  - Something is wrong function calls
 */
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
