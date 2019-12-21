@@ -15,46 +15,54 @@ let activeTasks = document.querySelector(".app__tasks-active");
 let pressed = 0;
 let html = ``;
 let counter = 0;
+//false means incomplete, true means complete
 let display = false;
+
+getActiveDisplay();
+
+//have the default display be set to incomplete 
+//every time the submit button is pressed check what the varaible is
 
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
 
 displayIncompleteTasks.addEventListener('click', () => {
-  $("clicked");
+  display = false;
+  getActiveDisplay();
+/*  $("clicked");
   setHtml();
   setCounter();
   todoArray.forEach(htmlRewrite);
-  tasksSection.innerHTML = html;
+  tasksSection.innerHTML = html;*/
 }); 
 
 displayCompleteTasks.addEventListener('click', () => {
-  $("clicked");
+  display = true;
+  getActiveDisplay();
+/*  $("clicked");
   setHtml();
   setCounter();
   completeArray.forEach(completeTaskDisplay);
-  tasksSection.innerHTML = html;
+  tasksSection.innerHTML = html;*/
 }); 
 
 btn.addEventListener(`click`, () => {
     const userInput = document.querySelector(".app__form--input");
     const finalInput = userInput.value;
     const isInputLongEnough = (Boolean(finalInput.length));
+
     if(isInputLongEnough) {
-    errorElement.innerHTML = ``;
-    todoArray.push(finalInput);
-    $(`${todoArray[pressed]}`);
-    userInput.value = ``;  
-    setHtml();
-    setCounter();
-    todoArray.forEach(completeTaskDisplay);
-    $(html);
-    tasksSection.innerHTML = html;
-    getActiveTasks();
-    pressed++;
-    $(todoArray.toString());
+      errorElement.innerHTML = ``;
+      todoArray.push(finalInput);
+      $(`${todoArray[pressed]}`);
+      userInput.value = ``;
+      //call function to check what the dispay is  
+      getActiveDisplay();
+      getActiveTasks();
+      pressed++;
+      $(todoArray.toString());
     }
     else {
-        errorElement.innerHTML = `String is Not Long Enough!`;
+      errorElement.innerHTML = `String is Not Long Enough!`;
     } 
   });
 
@@ -80,6 +88,21 @@ btn.addEventListener(`click`, () => {
         setArraySize(todoArray, clickedIndex);
       }
   });
+
+  function getActiveDisplay() {
+    if(display) {
+      setCounter();
+      setHtml();
+      completeArray.forEach(completeTaskDisplay);
+      tasksSection.innerHTML = html;
+    }
+    else {
+      setCounter();
+      setHtml();
+      todoArray.forEach(completeTaskDisplay);
+      tasksSection.innerHTML = html;
+    }
+  }
 
   //Rewrite function to display both. It must take in a parameter this could probably just be an arrow function
   function htmlRewrite() {
@@ -118,7 +141,6 @@ btn.addEventListener(`click`, () => {
   }
 
   function setCompletedTasks(array, index) {
-    //bug deletes two instead of only 1 
     completeArray.push(array[index]);
     $(completeArray.toString());
     setArraySize(todoArray, index)
