@@ -29,3 +29,12 @@
 .task__holder--delete:hover {
     color: $textColorRed;
 }
+
+.task__holder--undo {
+    color: $textColorWhite;
+    cursor: pointer;
+}
+
+.task__holder--undo:hover {
+    color: $textColorGreen;
+}

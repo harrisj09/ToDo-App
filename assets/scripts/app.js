@@ -1,8 +1,3 @@
-/*
-  BROKEN
-
-  - Something is wrong function calls
-*/
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");
@@ -18,22 +13,10 @@ let counter = 0;
 //false means incomplete, true means complete
 let display = false;
 
-getActiveDisplay();
-
 //have the default display be set to incomplete 
 //every time the submit button is pressed check what the varaible is
 
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
-
-displayIncompleteTasks.addEventListener('click', () => {
-  display = false;
-  getActiveDisplay();
-/*  $("clicked");
-  setHtml();
-  setCounter();
-  todoArray.forEach(htmlRewrite);
-  tasksSection.innerHTML = html;*/
-}); 
 
 displayCompleteTasks.addEventListener('click', () => {
   display = true;
@@ -45,6 +28,16 @@ displayCompleteTasks.addEventListener('click', () => {
   tasksSection.innerHTML = html;*/
 }); 
 
+displayIncompleteTasks.addEventListener('click', () => {
+  display = false;
+  getActiveDisplay();
+/*  $("clicked");
+  setHtml();
+  setCounter();
+  todoArray.forEach(htmlRewrite);
+  tasksSection.innerHTML = html;*/
+}); 
+
 btn.addEventListener(`click`, () => {
     const userInput = document.querySelector(".app__form--input");
     const finalInput = userInput.value;
@@ -53,12 +46,10 @@ btn.addEventListener(`click`, () => {
     if(isInputLongEnough) {
       errorElement.innerHTML = ``;
       todoArray.push(finalInput);
-      $(`${todoArray[pressed]}`);
       userInput.value = ``;
       //call function to check what the dispay is  
       getActiveDisplay();
       getActiveTasks();
-      pressed++;
       $(todoArray.toString());
     }
     else {
@@ -99,7 +90,7 @@ btn.addEventListener(`click`, () => {
     else {
       setCounter();
       setHtml();
-      todoArray.forEach(completeTaskDisplay);
+      todoArray.forEach(htmlRewrite);
       tasksSection.innerHTML = html;
     }
   }
@@ -123,7 +114,7 @@ btn.addEventListener(`click`, () => {
     html += `
     <div>
     <div class="task__holder">
-        <div class="task__holder--complete" data-complete="${counter}">Completed</div>
+        <div class="task__holder--undo" data-undo="${counter}">Undo</div>
             <p class="task__desc">${completeArray[counter]}</p>
             <div class="task__holder--delete" data-delete="${counter}">Delete</div>
         </div>
@@ -142,17 +133,14 @@ btn.addEventListener(`click`, () => {
 
   function setCompletedTasks(array, index) {
     completeArray.push(array[index]);
-    $(completeArray.toString());
     setArraySize(todoArray, index)
   }
 
   function setArraySize(array, index) {
     array.splice(index, 1);
-    $(array);
     //calling dom
     setHtml();
     counter = 0;
-    todoArray.forEach(htmlRewrite);
-    $(html);
+    array.forEach(htmlRewrite);
     tasksSection.innerHTML = html;
   }

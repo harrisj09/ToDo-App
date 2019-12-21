@@ -125,6 +125,15 @@
   color: red;
 }
 
+.task__holder--undo {
+  color: white;
+  cursor: pointer;
+}
+
+.task__holder--undo:hover {
+  color: green;
+}
+
 .credit__text {
   color: white;
   text-align: center;
