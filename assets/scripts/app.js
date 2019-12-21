@@ -1,3 +1,4 @@
+/*model*/
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");
@@ -13,31 +14,22 @@ let counter = 0;
 //false means incomplete, true means complete
 let display = false;
 
-//have the default display be set to incomplete 
-//every time the submit button is pressed check what the varaible is
-
+/*view*/
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
 
+/*view*/
 displayCompleteTasks.addEventListener('click', () => {
   display = true;
   getActiveDisplay();
-/*  $("clicked");
-  setHtml();
-  setCounter();
-  completeArray.forEach(completeTaskDisplay);
-  tasksSection.innerHTML = html;*/
 }); 
 
+/*view*/
 displayIncompleteTasks.addEventListener('click', () => {
   display = false;
   getActiveDisplay();
-/*  $("clicked");
-  setHtml();
-  setCounter();
-  todoArray.forEach(htmlRewrite);
-  tasksSection.innerHTML = html;*/
 }); 
 
+/*view*/
 btn.addEventListener(`click`, () => {
     const userInput = document.querySelector(".app__form--input");
     const finalInput = userInput.value;
@@ -57,8 +49,7 @@ btn.addEventListener(`click`, () => {
     } 
   });
 
-
-
+/*view*/
   tasksSection.addEventListener('click', event => {
     const {
         classList,
@@ -69,17 +60,20 @@ btn.addEventListener(`click`, () => {
       const clickedText = holder.innerHTML;
       if (classList.contains("task__holder--complete")) {
         const clickedIndex = event.target.dataset.complete;
-        $(`Completed`);
-        //delete this for now but change it be sent to a different function and then delete it in setArraySize
         setCompletedTasks(todoArray, clickedIndex);
       } 
       else if(classList.contains("task__holder--delete")) {
         const clickedIndex = event.target.dataset.delete;
-        $(event.target.dataset.delete);
         setArraySize(todoArray, clickedIndex);
+      }
+      else if(classList.contains("task__holder--undo")) {
+        const clickedIndex = event.target.dataset.undo;
+        $(event.target.dataset.undo);
+        //remove it from index in completed array and move it to todoArray
       }
   });
 
+/*controller*/
   function getActiveDisplay() {
     if(display) {
       setCounter();
@@ -95,7 +89,7 @@ btn.addEventListener(`click`, () => {
     }
   }
 
-  //Rewrite function to display both. It must take in a parameter this could probably just be an arrow function
+  /*view*/
   function htmlRewrite() {
     html += `
     <div>
@@ -109,7 +103,7 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
-  //will be deleted eventually, but is here for testing
+  /*view*/
   function completeTaskDisplay() {
     html += `
     <div>
@@ -123,19 +117,23 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
+/*model*/
   function setCounter() {
     counter = 0;
   }
 
+  /*model*/
   function setHtml() {
     html = ``;
   }
 
+  /*model*/
   function setCompletedTasks(array, index) {
     completeArray.push(array[index]);
     setArraySize(todoArray, index)
   }
 
+  /*model*/
   function setArraySize(array, index) {
     array.splice(index, 1);
     //calling dom
