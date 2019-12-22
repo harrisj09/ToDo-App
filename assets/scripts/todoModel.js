@@ -38,3 +38,11 @@ function setCounter() {
     array.forEach(htmlRewrite);
     tasksSection.innerHTML = html;
   }
+
+  class TodoModel {
+
+
+
+  }
+
+  export default TodoModel;

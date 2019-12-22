@@ -1,3 +1,11 @@
+/*
+This will be called
+import TodoModel from './TodoModel.js';
+import TodoView from './TodoView.js';
+import TodoController from './TodoController.js';
+*/
+
+
 /*model*/
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");

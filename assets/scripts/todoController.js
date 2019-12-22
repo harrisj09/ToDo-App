@@ -15,3 +15,11 @@ function getActiveDisplay() {
   }
 
   //functions will be needed here to grab model data
+
+
+class TodoController {
+
+
+}
+
+export default TodoController;
