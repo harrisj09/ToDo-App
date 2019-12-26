@@ -40,9 +40,23 @@ function setCounter() {
   }
 
   class TodoModel {
+    //Store actual todos here
+    constructor() {
+      this.todos = [
+        // Empty by default 
+      ];
+    }
 
+    getTodoList() {
+      return this.todos;
+    }
 
-
+    setTodoList(title, completed = false) {
+      this.todos.push({
+        title: title,
+        completed
+      });
+    }
   }
 
   export default TodoModel;

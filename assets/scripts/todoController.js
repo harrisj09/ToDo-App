@@ -18,7 +18,15 @@ function getActiveDisplay() {
 
 
 class TodoController {
+  constructor(model, view) {
+    // Allows us to call functions in these different classes
+    this.model = model;
+    this.view = view;
+  }
 
+  // Since this view and model cannot communicate with eachother controller will handle it
+
+  
 
 }
 
