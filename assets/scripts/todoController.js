@@ -24,9 +24,26 @@ class TodoController {
     this.view = view;
   }
 
-  // Since this view and model cannot communicate with eachother controller will handle it
+  // Not too sure what this one does
+  init() {
 
-  
+  }
+
+  addTask() {
+    
+  }
+
+  removeTask() {
+
+  }
+
+  completeTask() {
+
+  }
+
+  updateList() {
+
+  }
 
 }
 
