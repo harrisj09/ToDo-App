@@ -1,3 +1,4 @@
+/*
 function getActiveDisplay() {
     if(display) {
       setCounter();
@@ -12,14 +13,15 @@ function getActiveDisplay() {
       tasksSection.innerHTML = html;
     }
   }
+  */
 
-
+//Delete everything above once this is done
 class TodoController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
   }
-  
+
   init() {
     //Basically starts the whole process
   }
@@ -38,6 +40,10 @@ class TodoController {
 
   updateList() {
     //Send array to view
+  }
+
+  getActiveTasks() {
+    this.view.displayActiveTasks(this.model.getTodoList());
   }
 
 }

@@ -1,5 +1,5 @@
 //Fix up event listeners to call functions inside of controller
-
+/*
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
 
 displayCompleteTasks.addEventListener('click', () => {
@@ -81,11 +81,10 @@ btn.addEventListener(`click`, () => {
       </div>
     `
     counter++;
-  }
+  } */
 
-//Delete everything once this is done
+//Delete everything above once this is done
   class TodoView {
-
     constructor() {
       this.UI = {
         submit: document.querySelector(".app__form--submit"),
@@ -99,6 +98,10 @@ btn.addEventListener(`click`, () => {
 
     displayActiveTasks(array) {
       return activeTasks.innerHTML = `${array.length} Active Tasks`;
+    }
+
+    displayDate() {
+
     }
 
   }

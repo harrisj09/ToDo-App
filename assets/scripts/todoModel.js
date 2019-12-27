@@ -1,4 +1,4 @@
-//eventually will be worked on once functionality is done
+/*
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");
@@ -38,7 +38,9 @@ function setCounter() {
     array.forEach(htmlRewrite);
     tasksSection.innerHTML = html;
   }
+  */
 
+  //Delete everything above once this is done
   class TodoModel {
     constructor() {
       this.todos = [
