@@ -83,8 +83,23 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
+//Delete everything once this is done
   class TodoView {
 
+    constructor() {
+      this.UI = {
+        submit: document.querySelector(".app__form--submit"),
+        tasksSection: document.querySelector(".tasks__wrapper"),
+        errorElement: document.querySelector(".app__error"),
+        displayIncompleteTasks: document.querySelector('#incomplete'),
+        displayCompleteTasks: document.querySelector('#complete'),
+        activeTasks: document.querySelector(".app__tasks-active")
+      }
+    }
+
+    displayActiveTasks(array) {
+      return activeTasks.innerHTML = `${array.length} Active Tasks`;
+    }
 
   }
 

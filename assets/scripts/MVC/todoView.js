@@ -25,7 +25,6 @@ class TodoView {
             input: document.querySelector('.task__desc'),
             addBtn: document.getElementById('add-todo'),
             list: document.querySelector('.task__element')
-
         }
     }
 

@@ -40,7 +40,6 @@ function setCounter() {
   }
 
   class TodoModel {
-    //Store actual todos here
     constructor() {
       this.todos = [
         // Empty by default 

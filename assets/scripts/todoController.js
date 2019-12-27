@@ -1,4 +1,3 @@
-//Most of the code from app.js will go in here
 function getActiveDisplay() {
     if(display) {
       setCounter();
@@ -14,34 +13,31 @@ function getActiveDisplay() {
     }
   }
 
-  //functions will be needed here to grab model data
-
 
 class TodoController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
   }
-
-  // Not too sure what this one does
+  
   init() {
-
+    //Basically starts the whole process
   }
 
   addTask() {
-    
+    //Call model, then updatelist
   }
 
   removeTask() {
-
+    //Call model, then updatelist
   }
 
   completeTask() {
-
+    //Call model, then updatelist
   }
 
   updateList() {
-
+    //Send array to view
   }
 
 }
