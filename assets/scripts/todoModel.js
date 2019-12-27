@@ -48,11 +48,11 @@ function setCounter() {
       ];
     }
 
-    getTodoList() {
+    get TodoList() {
       return this.todos;
     }
 
-    setTodoList(title, completed = false) {
+    setodoList(title, completed = false) {
       this.todos.push({
         title: title,
         completed

@@ -90,9 +90,10 @@ btn.addEventListener(`click`, () => {
         submit: document.querySelector(".app__form--submit"),
         tasksSection: document.querySelector(".tasks__wrapper"),
         errorElement: document.querySelector(".app__error"),
-        displayIncompleteTasks: document.querySelector('#incomplete'),
-        displayCompleteTasks: document.querySelector('#complete'),
-        activeTasks: document.querySelector(".app__tasks-active")
+        displayIncompleteTasks: document.querySelector("#incomplete"),
+        displayCompleteTasks: document.querySelector("#complete"),
+        activeTasks: document.querySelector(".app__tasks-active"),
+        date: document.querySelector(".app__date")
       }
     }
 
@@ -101,6 +102,11 @@ btn.addEventListener(`click`, () => {
     }
 
     displayDate() {
+
+    }
+
+    //state is a boolean to filter out list
+    displayTasks(array, state) {
 
     }
 
