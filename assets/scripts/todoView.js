@@ -102,7 +102,8 @@ btn.addEventListener(`click`, () => {
     }
 
     displayDate() {
-
+      const d = new Date();
+      return date.innerHTML = `${d.getMonth} ${d.getDay}, ${d.getFullYear}`;
     }
 
     //state is a boolean to filter out list

@@ -1,20 +1,3 @@
-/*
-function getActiveDisplay() {
-    if(display) {
-      setCounter();
-      setHtml();
-      completeArray.forEach(completeTaskDisplay);
-      tasksSection.innerHTML = html;
-    }
-    else {
-      setCounter();
-      setHtml();
-      todoArray.forEach(htmlRewrite);
-      tasksSection.innerHTML = html;
-    }
-  }
-  */
-
 //Delete everything above once this is done
 class TodoController {
   constructor(model, view) {
@@ -22,9 +5,15 @@ class TodoController {
     this.view = view;
   }
 
+  
+
   init() {
     //Basically starts the whole process
+    //Call display date
+    this.view.
+    this.view.displayDate();
   }
+
 
   addTask() {
     //Call model, then updatelist
@@ -34,12 +23,14 @@ class TodoController {
     //Call model, then updatelist
   }
 
+  // Changing displays
   completeTask() {
-    //Call model, then updatelist
+  //Call model, then updatelist
   }
 
+  // Updates displays of complete or incomplete tasks
   updateList() {
-    //Send array to view
+    //Use foreach loop useing a boolean value
   }
 
   getActiveTasks() {

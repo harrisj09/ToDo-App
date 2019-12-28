@@ -42,9 +42,10 @@ function setCounter() {
 
   //Delete everything above once this is done
   class TodoModel {
-    constructor() {
+    constructor(task, completed) {
       this.todos = [
-        // Empty by default 
+        this.task = task,
+        this.completed = false
       ];
     }
 
@@ -52,7 +53,7 @@ function setCounter() {
       return this.todos;
     }
 
-    setodoList(title, completed = false) {
+    setTodoList(title, completed = false) {
       this.todos.push({
         title: title,
         completed
