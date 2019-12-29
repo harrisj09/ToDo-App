@@ -5,15 +5,13 @@ class TodoController {
     this.view = view;
   }
 
-  
-
   init() {
     //Basically starts the whole process
     //Call display date
-    this.view.
+    this.updateList();
     this.view.displayDate();
+    this.displayActiveTasks;
   }
-
 
   addTask() {
     //Call model, then updatelist
@@ -30,7 +28,7 @@ class TodoController {
 
   // Updates displays of complete or incomplete tasks
   updateList() {
-    //Use foreach loop useing a boolean value
+    //Use foreach loop using a boolean value
   }
 
   getActiveTasks() {
