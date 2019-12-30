@@ -3,9 +3,12 @@ This will be called
 import TodoModel from './TodoModel.js';
 import TodoView from './TodoView.js';
 import TodoController from './TodoController.js';
+
+const todoController = new TodoController(new TodoModel, new TodoView);
+todoController.init();
 */
 
-
+/*Everything below will be deleted once MVC done*/
 /*model*/
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");

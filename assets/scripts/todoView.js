@@ -1,5 +1,5 @@
 //Fix up event listeners to call functions inside of controller
-
+/*
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
 
 displayCompleteTasks.addEventListener('click', () => {
@@ -81,10 +81,35 @@ btn.addEventListener(`click`, () => {
       </div>
     `
     counter++;
-  }
+  } */
 
+//Delete everything above once this is done
   class TodoView {
+    constructor() {
+      this.UI = {
+        submit: document.querySelector(".app__form--submit"),
+        tasksSection: document.querySelector(".tasks__wrapper"),
+        errorElement: document.querySelector(".app__error"),
+        displayIncompleteTasks: document.querySelector("#incomplete"),
+        displayCompleteTasks: document.querySelector("#complete"),
+        activeTasks: document.querySelector(".app__tasks-active"),
+        date: document.querySelector(".app__date")
+      }
+    }
 
+    displayActiveTasks(array) {
+      return activeTasks.innerHTML = `${array.length} Active Tasks`;
+    }
+
+    displayDate() {
+      const d = new Date();
+      return date.innerHTML = `${d.getMonth} ${d.getDay}, ${d.getFullYear}`;
+    }
+
+    //state is a boolean to filter out list
+    displayTasks(array, state) {
+
+    }
 
   }
 
