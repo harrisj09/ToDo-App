@@ -18,7 +18,7 @@
     }
 
     removeTodo(index) {
-      
+      this.todos.splice(index, 1);
     }
   }
 
