@@ -1,3 +1,26 @@
+/*
+These need to be called they were originally in the controller 
+but are now moved into the model
+
+-  addTask
+-  removeTask
+-  completeTask
+
+  addTask(text) {
+    this.model.addTodoList(text);
+  }
+
+  removeTask(index) {
+    //Function should be called in the model class for logic 
+    this.model.removeTodo(index);
+
+  }
+
+  completeTask(index) {
+    // Call model, then updatelist
+  }
+*/
+
 class TodoController {
   constructor(model, view) {
     this.model = model;
@@ -61,20 +84,6 @@ class TodoController {
     
   }
 
-  addTask(text) {
-    this.model.addTodoList(text);
-  }
-
-  removeTask(index) {
-    //Function should be called in the model class for logic 
-    this.model.removeTodo(index);
-
-  }
-
-  completeTask(index) {
-    // Call model, then updatelist
-  }
-
   // Updates displays of complete or incomplete tasks
   updateList() {
 
@@ -88,7 +97,7 @@ class TodoController {
         numberOfActiveTasks++;
       }
     }
-    this.view.displayActiveTasks(this.model.getTodoList());
+    this.view.displayActiveTasks(numberOfActiveTasks);
     updateList;
   }
 

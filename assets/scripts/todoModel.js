@@ -16,9 +16,17 @@
         completed
       });
     }
+  
+    completeTask(index) {
+      // Call model, then updatelist
+    }
 
     removeTodo(index) {
       this.todos.splice(index, 1);
+    }
+
+    undoTask(index) {
+      
     }
   }
 
