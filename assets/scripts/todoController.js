@@ -76,13 +76,19 @@ class TodoController {
 
   }
   
-  // Redo this to filter out only false (incomplete tasks)
   getActiveTasks() {
+    let index = 0;
+    let numberOfActiveTasks = 0;
+    for(index in this.model.todos) {
+      if(this.model.todos.state == false) {
+        numberOfActiveTasks++;
+      }
+    }
     this.view.displayActiveTasks(this.model.getTodoList());
     updateList;
   }
 
-  // Move to view
+  // Move to view, have this function call the actual task filter and pass in the parameter and boolean
   tasksFilter(type) {
     let index = 0;
     let html = ``;
