@@ -26,8 +26,8 @@ class TodoController {
       }
     });
     // false means incomplete, true is opposite
-    this.view.displayIncompleteTasks.addEventListener("click", tasksFilter(false));
-    this.view.displayCompleteTasks.addEventListener("click", taskFilter(true));
+    this.view.displayIncompleteTasks.addEventListener("click", tasksFilter(false, this.model.todos));
+    this.view.displayCompleteTasks.addEventListener("click", taskFilter(true, this.model.todos));
     this.view.tasksSection.addEventListener("click", userClickedOn(event));
   }
 
@@ -40,21 +40,25 @@ class TodoController {
     //grabbing text
     const holder = event.target;
     const clickedText = holder.innerHTML;
+
+    // this should be fine
     if (classList.contains("task__holder--complete")) {
       const clickedIndex = event.target.dataset.complete;
       // Fix
       setCompletedTasks(this.model.todos, clickedIndex);
     } 
+
     else if(classList.contains("task__holder--delete")) {
       const clickedIndex = event.target.dataset.delete;
-      // Fix
-      setArraySize(this.model.todos, clickedIndex);
+      this.model.removeTodo(this.model.todos, clickedIndex);
     }
+
     else if(classList.contains("task__holder--undo")) {
       const clickedIndex = event.target.dataset.undo;
       // Fix
       //remove it from index in completed array and move it to todoArray
     }
+    
   }
 
   addTask(text) {
@@ -88,44 +92,8 @@ class TodoController {
     updateList;
   }
 
-  // Move to view, have this function call the actual task filter and pass in the parameter and boolean
   tasksFilter(type) {
-    let index = 0;
-    let html = ``;
-    // Display incomplete list
-    if(!type) {
-      for(index in array) {
-      if(this.model.todos.state[index] == type) {
-        // should be rewritten for undo
-        html += `
-        <div>
-          <div class="task__holder">
-            <div class="task__holder--undo" data-undo="${index}">Undo</div>
-              <p class="task__desc">${this.model.task[index]}</p>
-              <div class="task__holder--delete" data-delete="${index}">Delete</div>
-             </div>
-           </div>
-        `; 
-      }
-    }
-  }
-  // Display complete list
-  else {
-    for(index in this.model.todos) {
-      if(this.model.todos.state[index] == type) {
-        html += `
-        <div>
-          <div class="task__holder">
-            <div class="task__holder--undo" data-undo="${index}">Undo</div>
-              <p class="task__desc">${this.model.todo.task[index]}</p>
-              <div class="task__holder--delete" data-undo="${index}">Delete</div>
-             </div>
-           </div>
-        `; 
-      }
-    }
-  }
-    this.view.displayTasks(html);
+    this.view.displayTasks(html, this.model.todos);
   }
 }
 
