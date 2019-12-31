@@ -16,6 +16,10 @@
         completed
       });
     }
+
+    removeTodo(index) {
+      
+    }
   }
 
   export default TodoModel;
