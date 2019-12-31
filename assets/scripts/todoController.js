@@ -57,6 +57,7 @@ class TodoController {
     this.view.displayActiveTasks(this.model.getTodoList());
   }
 
+  // Move to view
   tasksFilter(type) {
     let index = 0;
     let html = ``;
