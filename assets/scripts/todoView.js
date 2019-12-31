@@ -1,6 +1,7 @@
   class TodoView {
     constructor() {
       this.UI = {
+        userInput: document.querySelector(".app__form--input"),
         submit: document.querySelector(".app__form--submit"),
         tasksSection: document.querySelector(".tasks__wrapper"),
         errorElement: document.querySelector(".app__error"),
@@ -21,8 +22,10 @@
     }
 
     //state is a boolean to filter out list
-    displayTasks() {
+    displayTasks(html) {
       // Maybe a callback function is needed in order to check whats right
+      // Grab task filter, also reset html
+      tasksSection.innerHTML = html;
     }
   }
 
