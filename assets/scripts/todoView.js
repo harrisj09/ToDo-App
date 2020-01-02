@@ -12,6 +12,25 @@
       }
     }
 
+    invokeEventListeners() {
+      this.submit.addEventListener("click", () => {
+        e.preventDefault();
+        const userInputFinal = this.userInput.value;
+        if(userInputFinal.length > 0) {
+          this.errorElement.innerHTML = ``;
+            // Call function
+        } else {
+          this.userInput.value = ``;
+          this.errorElement = "Error Input Isn't Long Enough!";
+        }
+      });
+      // false means incomplete, true is opposite
+      this.displayIncompleteTasks.addEventListener("click", tasksFilter(false, this.model.todos));
+      this.displayCompleteTasks.addEventListener("click", taskFilter(true, this.model.todos));
+      this.tasksSection.addEventListener("click", userClickedOn(event));
+    }
+
+    // callback needed
     displayActiveTasks(array) {
       return activeTasks.innerHTML = `${array.length} Active Tasks`;
     }
@@ -25,6 +44,7 @@
     displayTasks(html, todos) {
       let index = 0;
       let html = ``;
+
       // Display incomplete list
       if(!type) {
         for(index in todos) {

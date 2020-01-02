@@ -36,24 +36,6 @@ class TodoController {
     this.invokeEventListeners;
   }
 
-  invokeEventListeners() {
-    this.submit.addEventListener("click", () => {
-      e.preventDefault();
-      const userInputFinal = this.view.userInput.value;
-      if(userInputFinal.length > 0) {
-        this.view.errorElement.innerHTML = ``;
-          // Call function
-      } else {
-        this.view.userInput.value = ``;
-        this.view.errorElement = "Error Input Isn't Long Enough!";
-      }
-    });
-    // false means incomplete, true is opposite
-    this.view.displayIncompleteTasks.addEventListener("click", tasksFilter(false, this.model.todos));
-    this.view.displayCompleteTasks.addEventListener("click", taskFilter(true, this.model.todos));
-    this.view.tasksSection.addEventListener("click", userClickedOn(event));
-  }
-
   // Handles with grabbing what you clicked on by data attribute. 
   userClickedOn(event) {
     const {
