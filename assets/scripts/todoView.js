@@ -13,6 +13,7 @@
     }
 
     invokeEventListeners() {
+      console.log('event listeners called');
       this.submit.addEventListener("click", () => {
         e.preventDefault();
         const userInputFinal = this.userInput.value;
@@ -36,6 +37,7 @@
     }
 
     displayDate() {
+      console.log('display date called');
       const d = new Date();
       this.UI.date.innerHTML = `${d.getFullYear}`;
     }
@@ -44,6 +46,11 @@
     displayTasks(html, todos) {
       let index = 0;
       html = ``;
+
+      /*
+        Could shorten this by removing else and adding a string let that changes what the string contains.
+        Use that string in the template literal to assign data attributes
+      */
 
       // Display incomplete list
       if(!type) {

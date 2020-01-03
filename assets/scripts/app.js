@@ -12,6 +12,7 @@ todoController.init();
 
 /*Everything below will be deleted once MVC done*/
 /*
+//object destructuring
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");

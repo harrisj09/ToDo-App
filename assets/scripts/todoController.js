@@ -2,15 +2,18 @@ class TodoController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    //object destructuring
+    //const { log: $, warn: $w, error: $e } = console;
   }
 
   init() {
+    console.log('init called');
     // Basically starts the whole process
     // Call display date (Once done)
     this.updateList();
     this.view.displayDate();
     this.displayActiveTasks;
-    this.invokeEventListeners;
+    this.view.invokeEventListeners();
   }
 
   // Handles with grabbing what you clicked on by data attribute. 
@@ -45,7 +48,7 @@ class TodoController {
 
   // Updates displays of complete or incomplete tasks
   updateList() {
-
+    console.log('update list called');
   }
   
   getActiveTasks() {
