@@ -37,13 +37,13 @@
 
     displayDate() {
       const d = new Date();
-      return this.date.innerHTML = `${d.getMonth} ${d.getDay}, ${d.getFullYear}`;
+      this.UI.date.innerHTML = `${d.getFullYear}`;
     }
 
     //state is a boolean to filter out list
     displayTasks(html, todos) {
       let index = 0;
-      let html = ``;
+      html = ``;
 
       // Display incomplete list
       if(!type) {

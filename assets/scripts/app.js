@@ -1,15 +1,17 @@
-/*
-This will be called
 import TodoModel from './TodoModel.js';
 import TodoView from './TodoView.js';
 import TodoController from './TodoController.js';
 
 const todoController = new TodoController(new TodoModel, new TodoView);
 todoController.init();
-*/
+
+
+
+
+// Old code
 
 /*Everything below will be deleted once MVC done*/
-/*model*/
+/*
 const { log: $, warn: $w, error: $e } = console;
 const btn = document.querySelector(".app__form--submit");
 const tasksSection = document.querySelector(".tasks__wrapper");
@@ -25,22 +27,18 @@ let counter = 0;
 //false means incomplete, true means complete
 let display = false;
 
-/*view*/
 const getActiveTasks = () => { return activeTasks.innerHTML = `${todoArray.length} Active Tasks` };
 
-/*view*/
 displayCompleteTasks.addEventListener('click', () => {
   display = true;
   getActiveDisplay();
 }); 
 
-/*view*/
 displayIncompleteTasks.addEventListener('click', () => {
   display = false;
   getActiveDisplay();
 }); 
 
-/*view*/
 btn.addEventListener(`click`, () => {
     const userInput = document.querySelector(".app__form--input");
     const finalInput = userInput.value;
@@ -60,7 +58,6 @@ btn.addEventListener(`click`, () => {
     } 
   });
 
-/*view*/
   tasksSection.addEventListener('click', event => {
     const {
         classList,
@@ -84,7 +81,6 @@ btn.addEventListener(`click`, () => {
       }
   });
 
-/*controller*/
   function getActiveDisplay() {
     if(display) {
       setCounter();
@@ -100,7 +96,7 @@ btn.addEventListener(`click`, () => {
     }
   }
 
-  /*view*/
+
   function htmlRewrite() {
     html += `
     <div>
@@ -114,7 +110,7 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
-  /*view*/
+
   function completeTaskDisplay() {
     html += `
     <div>
@@ -128,23 +124,22 @@ btn.addEventListener(`click`, () => {
     counter++;
   }
 
-/*model*/
   function setCounter() {
     counter = 0;
   }
 
-  /*model*/
+
   function setHtml() {
     html = ``;
   }
 
-  /*model*/
+
   function setCompletedTasks(array, index) {
     completeArray.push(array[index]);
     setArraySize(todoArray, index)
   }
 
-  /*model*/
+
   function setArraySize(array, index) {
     array.splice(index, 1);
     //calling dom
@@ -152,4 +147,4 @@ btn.addEventListener(`click`, () => {
     counter = 0;
     array.forEach(htmlRewrite);
     tasksSection.innerHTML = html;
-  }
+  } */
