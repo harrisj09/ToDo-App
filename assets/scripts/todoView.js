@@ -12,7 +12,7 @@
       }
     }
 
-    invokeEventListeners() {
+    invokeEventListeners(array) {
       console.log(this.submit);
       this.UI.submit.addEventListener("click", () => {
         console.log("Submit pressed");
@@ -25,16 +25,17 @@
           this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
         }
       });
-      // false means incomplete, true is opposite
-      this.UI.displayIncompleteTasks.addEventListener("click", displayTasks(false, this.model.todos));
-      this.UI.displayCompleteTasks.addEventListener("click", displayTasks(true, this.model.todos));
+      // false means complete, true is opposite get the array
+      this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(true, array));
+      this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(false, array));
       this.UI.tasksSection.addEventListener("click", userClickedOn(event));
     }
 
-    // callback needed
+    // callback needed grab array
+    /*
     displayActiveTasks(array) {
-      return activeTasks.innerHTML = `${array.length} Active Tasks`;
-    }
+      return this.UI.activeTasks.innerHTML = `${array.length} Active Tasks`;
+    } */
 
     displayDate() {
       console.log('display date called');
@@ -48,11 +49,6 @@
       let dataAttributeType = "";
       let html = ``;
 
-      /*
-        Could shorten this by removing else and adding a string let that changes what the string contains.
-        Use that string in the template literal to assign data attributes
-      */
-
       if(type) {
         dataAttributeType = "delete";
       }
@@ -61,6 +57,7 @@
         dataAttributeType =  "undo";
       }
       
+      console.log(todos);
       // Display incomplete list
         for(index in todos) {
         if(todos.state[index] == type) {

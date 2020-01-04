@@ -12,8 +12,8 @@ class TodoController {
     // Call display date (Once done)
     this.updateList();
     this.view.displayDate();
-    this.view.displayActiveTasks();
-    this.view.invokeEventListeners();
+    //this.view.displayActiveTasks();
+    this.view.invokeEventListeners(this.model.todos);
   }
 
   // Handles with grabbing what you clicked on by data attribute. 
