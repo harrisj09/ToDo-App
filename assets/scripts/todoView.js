@@ -12,10 +12,23 @@
       }
     }
 
+    /*
+This needs to be sent from the controller
+    document.querySelector(".app__form--input"),
+    document.querySelector(".app__form--submit"),
+    document.querySelector(".tasks__wrapper"),
+    document.querySelector(".app__error"),
+    document.querySelector("#incomplete"),
+    document.querySelector("#complete"),
+    document.querySelector(".app__tasks-active"),
+    document.querySelector(".app__date") 
+    */
+  
+
     invokeEventListeners() {
-      console.log('event listeners called');
-      this.submit.addEventListener("click", () => {
-        e.preventDefault();
+      console.log(this.submit);
+      this.view.submit.addEventListener("click", () => {
+        //e.preventDefault();
         const userInputFinal = this.userInput.value;
         if(userInputFinal.length > 0) {
           this.errorElement.innerHTML = ``;
@@ -45,6 +58,7 @@
     //state is a boolean to filter out list
     displayTasks(html, todos) {
       let index = 0;
+      let dataAttributeType = "";
       html = ``;
 
       /*
@@ -52,8 +66,15 @@
         Use that string in the template literal to assign data attributes
       */
 
+      if(type) {
+        dataAttributeType = "delete";
+      }
+
+      else {
+        dataAttributeType =  "undo";
+      }
+      
       // Display incomplete list
-      if(!type) {
         for(index in todos) {
         if(todos.state[index] == type) {
           // should be rewritten for undo
@@ -62,29 +83,12 @@
             <div class="task__holder">
               <div class="task__holder--undo" data-undo="${index}">Undo</div>
                 <p class="task__desc">${todos.task[index]}</p>
-                <div class="task__holder--delete" data-delete="${index}">Delete</div>
+                <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
                </div>
              </div>
           `; 
         }
       }
-    }
-    // Display complete list
-    else {
-      for(index in todos) {
-        if(todos.state[index] == type) {
-          html += `
-          <div>
-            <div class="task__holder">
-              <div class="task__holder--undo" data-undo="${index}">Undo</div>
-                <p class="task__desc">${todos.task[index]}</p>
-                <div class="task__holder--delete" data-undo="${index}">Delete</div>
-               </div>
-             </div>
-          `; 
-        }
-      }
-    }
       tasksSection.innerHTML = html;
     }
   }
