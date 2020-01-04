@@ -1,57 +1,19 @@
-/*
-These need to be called they were originally in the controller 
-but are now moved into the model
-
--  addTask
--  removeTask
--  completeTask
-
-  addTask(text) {
-    this.model.addTodoList(text);
-  }
-
-  removeTask(index) {
-    //Function should be called in the model class for logic 
-    this.model.removeTodo(index);
-
-  }
-
-  completeTask(index) {
-    // Call model, then updatelist
-  }
-*/
-
 class TodoController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    //object destructuring
+    //const { log: $, warn: $w, error: $e } = console;
   }
 
   init() {
+    console.log('init called');
     // Basically starts the whole process
     // Call display date (Once done)
     this.updateList();
     this.view.displayDate();
-    this.displayActiveTasks;
-    this.invokeEventListeners;
-  }
-
-  invokeEventListeners() {
-    this.submit.addEventListener("click", () => {
-      e.preventDefault();
-      const userInputFinal = this.view.userInput.value;
-      if(userInputFinal.length > 0) {
-        this.view.errorElement.innerHTML = ``;
-          // Call function
-      } else {
-        this.view.userInput.value = ``;
-        this.view.errorElement = "Error Input Isn't Long Enough!";
-      }
-    });
-    // false means incomplete, true is opposite
-    this.view.displayIncompleteTasks.addEventListener("click", tasksFilter(false, this.model.todos));
-    this.view.displayCompleteTasks.addEventListener("click", taskFilter(true, this.model.todos));
-    this.view.tasksSection.addEventListener("click", userClickedOn(event));
+    //this.view.displayActiveTasks();
+    this.view.invokeEventListeners(this.model.todos);
   }
 
   // Handles with grabbing what you clicked on by data attribute. 
@@ -86,7 +48,7 @@ class TodoController {
 
   // Updates displays of complete or incomplete tasks
   updateList() {
-
+    console.log('update list called');
   }
   
   getActiveTasks() {

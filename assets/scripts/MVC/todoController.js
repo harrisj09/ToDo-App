@@ -25,6 +25,10 @@ class TodoController {
         const todos = this.model.todos_all();
         this.view.renderTodos(todos);
     }
+    // send in what was clicked to view grab from app.js add an event listener to the app.js to call init and pass in the event as a function
+    clickedAnElement(e) {
+
+    }
 }
 
 export default TodoController;
