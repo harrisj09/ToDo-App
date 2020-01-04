@@ -12,36 +12,23 @@
       }
     }
 
-    /*
-This needs to be sent from the controller
-    document.querySelector(".app__form--input"),
-    document.querySelector(".app__form--submit"),
-    document.querySelector(".tasks__wrapper"),
-    document.querySelector(".app__error"),
-    document.querySelector("#incomplete"),
-    document.querySelector("#complete"),
-    document.querySelector(".app__tasks-active"),
-    document.querySelector(".app__date") 
-    */
-  
-
     invokeEventListeners() {
       console.log(this.submit);
-      this.view.submit.addEventListener("click", () => {
-        //e.preventDefault();
-        const userInputFinal = this.userInput.value;
+      this.UI.submit.addEventListener("click", () => {
+        console.log("Submit pressed");
+        const userInputFinal = this.UI.userInput.value;
         if(userInputFinal.length > 0) {
-          this.errorElement.innerHTML = ``;
+          this.UI.errorElement.innerHTML = ``;
             // Call function
         } else {
-          this.userInput.value = ``;
-          this.errorElement = "Error Input Isn't Long Enough!";
+          this.UI.userInput.value = ``;
+          this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
         }
       });
       // false means incomplete, true is opposite
-      this.displayIncompleteTasks.addEventListener("click", tasksFilter(false, this.model.todos));
-      this.displayCompleteTasks.addEventListener("click", taskFilter(true, this.model.todos));
-      this.tasksSection.addEventListener("click", userClickedOn(event));
+      this.UI.displayIncompleteTasks.addEventListener("click", displayTasks(false, this.model.todos));
+      this.UI.displayCompleteTasks.addEventListener("click", displayTasks(true, this.model.todos));
+      this.UI.tasksSection.addEventListener("click", userClickedOn(event));
     }
 
     // callback needed
@@ -56,10 +43,10 @@ This needs to be sent from the controller
     }
 
     //state is a boolean to filter out list
-    displayTasks(html, todos) {
+    displayTasks(type, todos) {
       let index = 0;
       let dataAttributeType = "";
-      html = ``;
+      let html = ``;
 
       /*
         Could shorten this by removing else and adding a string let that changes what the string contains.
@@ -77,7 +64,6 @@ This needs to be sent from the controller
       // Display incomplete list
         for(index in todos) {
         if(todos.state[index] == type) {
-          // should be rewritten for undo
           html += `
           <div>
             <div class="task__holder">

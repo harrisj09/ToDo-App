@@ -12,7 +12,7 @@ class TodoController {
     // Call display date (Once done)
     this.updateList();
     this.view.displayDate();
-    this.displayActiveTasks;
+    this.view.displayActiveTasks();
     this.view.invokeEventListeners();
   }
 
