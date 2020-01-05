@@ -10,6 +10,7 @@ class TodoModel {
   }
 
   addTodoList(title, completed = false) {
+      console.log(`${title} from addTodoList`);
       this.todos.push({
           title: title,
           completed
