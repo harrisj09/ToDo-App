@@ -13,22 +13,18 @@ class TodoView {
   }
 
   invokeEventListeners(array, updateList) {
-      console.log(this.submit);
       this.UI.submit.addEventListener("click", () => {
-          console.log("Submit pressed");
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
-              console.log(userInputFinal);
-              // Call function
               updateList(userInputFinal);
           } else {
               this.UI.userInput.value = ``;
               this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
           }
       });
-      // false means complete, true is opposite get the array
+      // False means complete, true is opposite get the array
       this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(true, array));
       this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(false, array));
       this.UI.tasksSection.addEventListener("click", this.userClickedOn(event));
@@ -42,7 +38,7 @@ class TodoView {
               text: value
           }
       } = event.target;
-      //grabbing text
+      // Grabbing text
       const holder = event.target;
       const clickedText = holder.innerHTML;
 
@@ -56,7 +52,7 @@ class TodoView {
       } else if (classList.contains("task__holder--undo")) {
           const clickedIndex = event.target.dataset.undo;
           // Fix
-          //remove it from index in completed array and move it to todoArray
+          // Remove it from index in completed array and move it to todoArray
       }
   }
 
