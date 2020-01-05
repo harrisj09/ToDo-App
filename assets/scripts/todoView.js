@@ -27,11 +27,12 @@ class TodoView {
       // False means complete, true is opposite get the array
       this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(true, array));
       this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(false, array));
-      this.UI.tasksSection.addEventListener("click", this.userClickedOn(event));
+      this.UI.tasksSection.addEventListener("click", this.userClickedOn());
   }
 
   // Handles with grabbing what you clicked on by data attribute. 
-  userClickedOn(event) {
+  userClickedOn() {
+      console.log(event);
       // I dont think this method is actually getting the event or what was clicked on
       const {
           classList,
