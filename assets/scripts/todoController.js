@@ -16,36 +16,6 @@ class TodoController {
     this.view.invokeEventListeners(this.model.todos);
   }
 
-  // Handles with grabbing what you clicked on by data attribute. 
-  userClickedOn(event) {
-    const {
-      classList,
-      dataset: { text: value }
-    } = event.target;
-    //grabbing text
-    const holder = event.target;
-    const clickedText = holder.innerHTML;
-
-    // this should be fine
-    if (classList.contains("task__holder--complete")) {
-      const clickedIndex = event.target.dataset.complete;
-      // Fix
-      setCompletedTasks(this.model.todos, clickedIndex);
-    } 
-
-    else if(classList.contains("task__holder--delete")) {
-      const clickedIndex = event.target.dataset.delete;
-      this.model.removeTodo(this.model.todos, clickedIndex);
-    }
-
-    else if(classList.contains("task__holder--undo")) {
-      const clickedIndex = event.target.dataset.undo;
-      // Fix
-      //remove it from index in completed array and move it to todoArray
-    }
-    
-  }
-
   // Updates displays of complete or incomplete tasks
   updateList() {
     console.log('update list called');

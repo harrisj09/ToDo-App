@@ -1,8 +1,7 @@
   class TodoModel {
     constructor(task, completed) {
       this.todos = [
-        this.task = task,
-        this.completed = false
+        // blank by default
       ];
     }
 
