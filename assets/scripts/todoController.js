@@ -7,7 +7,6 @@ class TodoController {
   }
 
   init() {
-      console.log('init called');
       // Basically starts the whole process
       this.view.displayDate();
       this.view.invokeEventListeners(this.model.todos, this.updateList);
@@ -31,7 +30,7 @@ class TodoController {
       this.view.displayActiveTasks(numberOfActiveTasks);
       updateList;
   }
-  
+
   // Neeeds to be called possibly from the event listeners
   tasksFilter(type) {
       this.view.displayTasks(type, this.model.todos);
