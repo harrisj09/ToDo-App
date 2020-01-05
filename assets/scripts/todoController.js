@@ -1,13 +1,16 @@
+/*
+object destructuring
+const { log: $, warn: $w, error: $e } = console;
+*/
+
 class TodoController {
   constructor(model, view) {
       this.model = model;
       this.view = view;
-      //object destructuring
-      //const { log: $, warn: $w, error: $e } = console;
   }
 
   init() {
-      // Basically starts the whole process
+      // Starts the whole process
       this.view.displayDate();
       this.view.invokeEventListeners(this.model.todos, this.updateList);
       // this.view.displayActiveTasks();

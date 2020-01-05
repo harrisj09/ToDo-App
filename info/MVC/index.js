@@ -1,6 +1,6 @@
-import TodoModel from './TodoModel.js';
-import TodoView from './TodoView.js';
-import TodoController from './TodoController.js';
+import TodoModel from './TodoModel.js.js';
+import TodoView from './TodoView.js.js';
+import TodoController from './TodoController.js.js';
 
 const todoController = new TodoController(new TodoModel, new TodoView);
 
