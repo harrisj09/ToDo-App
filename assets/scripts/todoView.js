@@ -32,6 +32,7 @@ class TodoView {
 
   // Handles with grabbing what you clicked on by data attribute. 
   userClickedOn(event) {
+      // I dont think this method is actually getting the event or what was clicked on
       const {
           classList,
           dataset: {
