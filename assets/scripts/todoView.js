@@ -12,7 +12,7 @@ class TodoView {
       }
   }
 
-  invokeEventListeners(array, userClickedOn) {
+  invokeEventListeners(array, updateList) {
       console.log(this.submit);
       this.UI.submit.addEventListener("click", () => {
           console.log("Submit pressed");
@@ -20,7 +20,9 @@ class TodoView {
           if (userInputFinal.length > 0) {
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
+              console.log(userInputFinal);
               // Call function
+              updateList(userInputFinal);
           } else {
               this.UI.userInput.value = ``;
               this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
@@ -56,7 +58,6 @@ class TodoView {
           // Fix
           //remove it from index in completed array and move it to todoArray
       }
-
   }
 
   /* callback possibly needed to grab array

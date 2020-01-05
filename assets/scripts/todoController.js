@@ -9,23 +9,24 @@ class TodoController {
   init() {
       console.log('init called');
       // Basically starts the whole process
-      // Call display date (Once done)
       this.updateList();
       this.view.displayDate();
-      //this.view.displayActiveTasks();
-      this.view.invokeEventListeners(this.model.todos);
+      this.view.invokeEventListeners(this.model.todos, this.updateList);
+      // this.view.displayActiveTasks();
+      // Call display date (Once done)
   }
 
-  // Updates displays of complete or incomplete tasks
-  updateList() {
+    // Updates displays of complete or incomplete tasks
+  updateList(userInput = "") {
       console.log('update list called');
+      this.model.addTodoList(userInput);
   }
 
   getActiveTasks() {
       let index = 0;
       let numberOfActiveTasks = 0;
       for (index in this.model.todos) {
-          if (this.model.todos.state == false) {
+          if (index.state == false) {
               numberOfActiveTasks++;
           }
       }
