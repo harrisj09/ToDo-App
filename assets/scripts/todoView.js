@@ -68,6 +68,7 @@ class TodoView {
       this.UI.date.innerHTML = `${d.getMonth()} ${d.getDay()}, ${d.getFullYear()}`;
   }
 
+    // Callbacks will be needed to grab the array, althrough I think I can grab it from a method in this class
   displayTasks(type, todos) {
       let index = 0;
       let dataAttributeType = "";
@@ -85,7 +86,7 @@ class TodoView {
               html += `
         <div>
           <div class="task__holder">
-            <div class="task__holder--undo" data-undo="${index}">Undo</div>
+          <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
               <p class="task__desc">${todos.task[index]}</p>
               <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
              </div>

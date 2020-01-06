@@ -2,6 +2,7 @@ class TodoController {
   constructor(model, view) {
       this.model = model;
       this.view = view;
+      this.updateList = this.updateList.bind(this); 
   }
 
   init() {
