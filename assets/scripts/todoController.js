@@ -2,12 +2,10 @@ class TodoController {
   constructor(model, view) {
       this.model = model;
       this.view = view;
-      //object destructuring
-      //const { log: $, warn: $w, error: $e } = console;
   }
 
   init() {
-      // Basically starts the whole process
+      // Starts the whole process
       this.view.displayDate();
       this.view.invokeEventListeners(this.model.todos, this.updateList);
       // this.view.displayActiveTasks();
@@ -16,7 +14,7 @@ class TodoController {
 
   updateList(userInput = "") {
       console.log(`${userInput} from updateList`);
-      this.model.addTodoList(userInput);
+      this.model.addTodoList(userInput, false);
   }
 
   getActiveTasks() {
