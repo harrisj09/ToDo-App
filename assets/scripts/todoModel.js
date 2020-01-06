@@ -5,20 +5,16 @@ class TodoModel {
       ];
   }
 
-  get TodoList() {
-      return this.todos;
-  }
-
   addTodoList(title, completed = false) {
-      console.log(`${title} from addTodoList`);
       this.todos.push({
           title: title,
           completed
       });
+      console.log(this.todos);
   }
 
   completeTask(index) {
-      // Call model, then updatelist
+      this.todos[index].state = false;
   }
 
   removeTodo(index) {
@@ -26,7 +22,7 @@ class TodoModel {
   }
 
   undoTask(index) {
-
+    this.todos[index].state = false;
   }
 }
 

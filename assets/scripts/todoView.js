@@ -24,9 +24,9 @@ class TodoView {
               this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
           }
       });
-      // False means complete, true is opposite get the array
-      this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(true, array));
-      this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(false, array));
+      // False means incomplete, true is opposite
+      this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(false, array));
+      this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(true, array));
       this.UI.tasksSection.addEventListener("click", event => {
         const {
             classList,
@@ -46,10 +46,10 @@ class TodoView {
       if (classList.contains("task__holder--complete")) {
           const clickedIndex = event.target.dataset.complete;
           // Fix this
-          setCompletedTasks(this.model.todos, clickedIndex);
+          //setCompletedTasks(this.model.todos, clickedIndex);
       } else if (classList.contains("task__holder--delete")) {
           const clickedIndex = event.target.dataset.delete;
-          this.model.removeTodo(this.model.todos, clickedIndex);
+          //this.model.removeTodo(this.model.todos, clickedIndex);
       } else if (classList.contains("task__holder--undo")) {
           const clickedIndex = event.target.dataset.undo;
           // Fix this
@@ -63,17 +63,16 @@ class TodoView {
   } */
 
   displayDate() {
-      console.log('display date called');
       const d = new Date();
+      // Use an array of strings that contain months and days of the week. Get the number of the day/month and then just use dayOfWeek[index]
       this.UI.date.innerHTML = `${d.getMonth()} ${d.getDay()}, ${d.getFullYear()}`;
   }
 
-    // Callbacks will be needed to grab the array, althrough I think I can grab it from a method in this class
+    // Callbacks will be needed to grab the array, althrough I think it can be grabbed from a method in this class
   displayTasks(type, todos) {
       let index = 0;
       let dataAttributeType = "";
       let html = ``;
-
       if (type) {
           dataAttributeType = "delete";
       } else {
@@ -84,14 +83,14 @@ class TodoView {
       for (index in todos) {
           if (todos.state[index] == type) {
               html += `
-        <div>
-          <div class="task__holder">
-          <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
-              <p class="task__desc">${todos.task[index]}</p>
-              <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
-             </div>
+            <div>
+            <div class="task__holder">
+                <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
+                    <p class="task__desc">${todos.task[index]}</p>
+                <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
+            </div>
            </div>
-        `;
+            `;
           }
       }
       this.UI.tasksSection.innerHTML = html;
