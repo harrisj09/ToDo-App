@@ -12,7 +12,7 @@ class TodoView {
       }
   }
 
-  invokeEventListeners(array, updateList) {
+  invokeEventListeners(array, updateList, userClickedOn) {
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
@@ -27,19 +27,28 @@ class TodoView {
       // False means incomplete, true is opposite
       this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(false, array));
       this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(true, array));
+      /* 
+      Since userClickedOn is getting moved into TodoController, use a callback passing in userClickedOn
+      Call userClickedOn in this eventListener 
+      bind will also be needed for something I believe
+      */
+     // CURRENTLY BROKEN
       this.UI.tasksSection.addEventListener("click", event => {
+        // Originally had this but trying to move this into controller so there are some issues atm
         const {
             classList,
             dataSet: {
                 text: value
             }
         } = event.target;
+        //userClickedOn(classList);
         userClickedOn(classList);
     });
   }
 
-  // Handles with grabbing what you clicked on by data attribute.
-  // This might be moved to controller
+  /*
+   Handles with grabbing what you clicked on by data attribute.
+   This might be moved to controller
   userClickedOn(event) {
       const holder = event.target;
       const clickedText = holder.innerHTML;
@@ -55,7 +64,7 @@ class TodoView {
           // Fix this
           // Remove it from index in completed array and move it to todoArray
       }
-  }
+  }*/
 
   /* callback possibly needed to grab array
   displayActiveTasks(array) {
@@ -78,7 +87,6 @@ class TodoView {
       } else {
           dataAttributeType = "undo";
       }
-
       // Switch to filter method
       for (index in todos) {
           if (todos.state[index] == type) {
