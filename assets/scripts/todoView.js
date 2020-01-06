@@ -38,7 +38,8 @@ class TodoView {
     });
   }
 
-  // Handles with grabbing what you clicked on by data attribute. 
+  // Handles with grabbing what you clicked on by data attribute.
+  // This might be moved to controller
   userClickedOn(event) {
       const holder = event.target;
       const clickedText = holder.innerHTML;
