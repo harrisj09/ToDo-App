@@ -44,14 +44,14 @@ class TodoView {
       const clickedText = holder.innerHTML;
       if (classList.contains("task__holder--complete")) {
           const clickedIndex = event.target.dataset.complete;
-          // Fix
+          // Fix this
           setCompletedTasks(this.model.todos, clickedIndex);
       } else if (classList.contains("task__holder--delete")) {
           const clickedIndex = event.target.dataset.delete;
           this.model.removeTodo(this.model.todos, clickedIndex);
       } else if (classList.contains("task__holder--undo")) {
           const clickedIndex = event.target.dataset.undo;
-          // Fix
+          // Fix this
           // Remove it from index in completed array and move it to todoArray
       }
   }

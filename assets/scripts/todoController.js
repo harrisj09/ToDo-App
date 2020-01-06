@@ -1,8 +1,3 @@
-/*
-object destructuring
-const { log: $, warn: $w, error: $e } = console;
-*/
-
 class TodoController {
   constructor(model, view) {
       this.model = model;
@@ -19,7 +14,7 @@ class TodoController {
 
   updateList(userInput = "") {
       console.log(`${userInput} from updateList`);
-      this.model.addTodoList(userInput);
+      this.model.addTodoList(userInput, false);
   }
 
   getActiveTasks() {
