@@ -64,6 +64,7 @@ class TodoView {
   }
 
   displayTasks(type, todos) {
+    // Pass in a callback from controller that grabs the array
       let index = 0;
       let dataAttributeType;
       let html = ``;
