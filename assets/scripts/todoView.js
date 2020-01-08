@@ -18,16 +18,21 @@ class TodoView {
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
+              console.log("Submit was pressed");
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
               updateList(userInputFinal);
           } else {
               this.UI.userInput.value = ``;
-              this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
+              this.UI.errorElement.innerHTML = "Error, Input Isn't Long Enough!";
           }
       });
-      //this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(false, array));
-      //this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(true, array));
+      this.UI.displayIncompleteTasks.addEventListener("click", () => {
+          this.displayTasks(false, array)
+        });
+      this.UI.displayCompleteTasks.addEventListener("click", () => {
+          this.displayTasks(true, array)
+        });
       this.UI.tasksSection.addEventListener("click", event => {
         const {
             classList,
@@ -53,18 +58,7 @@ class TodoView {
       } else if (classList.contains("task__holder--undo")) {
           const clickedIndex = event.target.dataset.undo;
       }
-      else if (classList.contains("incomplete")) {
-        this.displayTasks(false, array);
-    }
-    else if (classList.contains("complete")) {
-        this.displayTasks(true, array);
-    }
   }
-
-  /* callback possibly needed to grab array
-  displayActiveTasks(array) {
-    return this.UI.activeTasks.innerHTML = `${array.length} Active Tasks`;
-  } */
 
   displayDate() {
       const d = new Date();
@@ -96,10 +90,9 @@ class TodoView {
       this.UI.date.innerHTML = `${daysOfWeek[d.getDay()]} ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
   }
 
-    // Callbacks will be needed to grab the array, althrough I think it can be grabbed from a method in this class
   displayTasks(type, todos) {
       let index = 0;
-      let dataAttributeType = "";
+      let dataAttributeType;
       let html = ``;
       console.log(type);
       if (type) {
@@ -107,7 +100,11 @@ class TodoView {
       } else {
           dataAttributeType = "delete";
       }
-      // Switch to filter method
+      const filteredList =  todos.filter(function(task) {
+          return task.state == type;
+        });
+
+    // Switch this to rewrite everything in filteredList
       for (index in todos) {
           if (todos.state[index] == type) {
               html += `
