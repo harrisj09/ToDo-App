@@ -9,7 +9,7 @@ class TodoController {
       // Starts the whole process
       this.view.displayDate();
       this.view.invokeEventListeners(this.model.todos, this.updateList);
-      this.view.displayTasks(false, array)
+      this.view.displayTasks(false, this.model.todos)
       // this.view.displayActiveTasks();
       // Call display date (Once done)
   }

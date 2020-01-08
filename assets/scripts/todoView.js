@@ -1,6 +1,7 @@
 class TodoView {
   constructor() {
       this.UI = {
+          entirePage: document.querySelector("html");
           userInput: document.querySelector(".app__form--input"),
           submit: document.querySelector(".app__form--submit"),
           tasksSection: document.querySelector(".tasks__wrapper"),
@@ -13,6 +14,7 @@ class TodoView {
   }
 
   invokeEventListeners(array, updateList) {
+      // remove all event listeners and just add one to the entire document, and check the id or class of what I clicked on
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
@@ -24,9 +26,8 @@ class TodoView {
               this.UI.errorElement.innerHTML = "Error Input Isn't Long Enough!";
           }
       });
-      // False means incomplete, true is opposite
-      this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(false, array));
-      this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(true, array));
+      //this.UI.displayIncompleteTasks.addEventListener("click", this.displayTasks(false, array));
+      //this.UI.displayCompleteTasks.addEventListener("click", this.displayTasks(true, array));
       this.UI.tasksSection.addEventListener("click", event => {
         const {
             classList,
@@ -51,9 +52,13 @@ class TodoView {
           //this.model.removeTodo(this.model.todos, clickedIndex);
       } else if (classList.contains("task__holder--undo")) {
           const clickedIndex = event.target.dataset.undo;
-          // Fix this
-          // Remove it from index in completed array and move it to todoArray
       }
+      else if (classList.contains("incomplete")) {
+        this.displayTasks(false, array);
+    }
+    else if (classList.contains("complete")) {
+        this.displayTasks(true, array);
+    }
   }
 
   /* callback possibly needed to grab array
@@ -98,9 +103,9 @@ class TodoView {
       let html = ``;
       console.log(type);
       if (type) {
-          dataAttributeType = "delete";
-      } else {
           dataAttributeType = "undo";
+      } else {
+          dataAttributeType = "delete";
       }
       // Switch to filter method
       for (index in todos) {
