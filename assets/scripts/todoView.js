@@ -1,7 +1,7 @@
 class TodoView {
   constructor() {
       this.UI = {
-          entirePage: document.querySelector("html");
+          entirePage: document.querySelector("html"),
           userInput: document.querySelector(".app__form--input"),
           submit: document.querySelector(".app__form--submit"),
           tasksSection: document.querySelector(".tasks__wrapper"),
