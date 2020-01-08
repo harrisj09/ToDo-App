@@ -45,6 +45,7 @@ class TodoView {
   }
 
   userClickedOn(event) {
+    // Have other callback functions for calling delete, undo or complete
       const holder = event.target;
       const clickedText = holder.innerHTML;
       if (classList.contains("task__holder--complete")) {
