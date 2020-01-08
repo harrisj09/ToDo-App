@@ -14,7 +14,6 @@ class TodoView {
   }
 
   invokeEventListeners(array, updateList) {
-      // remove all event listeners and just add one to the entire document, and check the id or class of what I clicked on
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
@@ -61,33 +60,7 @@ class TodoView {
   }
 
   displayDate() {
-      const d = new Date();
-      const months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
-      ];
-
-      const daysOfWeek = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ];
-
-      this.UI.date.innerHTML = `${daysOfWeek[d.getDay()]} ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+      this.UI.date.innerHTML = new Date().toLocaleString('en-us', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   }
 
   displayTasks(type, todos) {
@@ -102,23 +75,22 @@ class TodoView {
       }
       const filteredList =  todos.filter(function(task) {
           return task.state == type;
-        });
+      });
 
+    // Fix this
     // Switch this to rewrite everything in filteredList
-      for (index in todos) {
-          if (todos.state[index] == type) {
+      for (index in filteredList) {
               html += `
             <div>
             <div class="task__holder">
                 <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
-                    <p class="task__desc">${todos.task[index]}</p>
+                    <p class="task__desc">${index.task}</p>
                 <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
             </div>
            </div>
             `;
           }
-      }
-      this.UI.tasksSection.innerHTML = html;
+    this.UI.tasksSection.innerHTML = html;
   }
 }
 
