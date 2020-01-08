@@ -63,8 +63,32 @@ class TodoView {
 
   displayDate() {
       const d = new Date();
-      // Use an array of strings that contain months and days of the week. Get the number of the day/month and then just use dayOfWeek[index]
-      this.UI.date.innerHTML = `${d.getMonth()} ${d.getDay()}, ${d.getFullYear()}`;
+      const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+      ];
+
+      const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ];
+
+      this.UI.date.innerHTML = `${daysOfWeek[d.getDay()]} ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
   }
 
     // Callbacks will be needed to grab the array, althrough I think it can be grabbed from a method in this class
