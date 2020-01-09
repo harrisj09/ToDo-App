@@ -31,11 +31,11 @@ class TodoView {
       });
       this.UI.displayIncompleteTasks.addEventListener("click", () => {
           this.UI.type = false;
-          this.displayTasks(getTodos.array)
+          this.displayTasks(getTodos)
         });
       this.UI.displayCompleteTasks.addEventListener("click", () => {
           this.UI.type = true;
-          this.displayTasks(getTodos.array)
+          this.displayTasks(getTodos)
         });
       this.UI.tasksSection.addEventListener("click", event => {
         const {
