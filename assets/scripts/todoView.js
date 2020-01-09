@@ -1,5 +1,6 @@
 class TodoView {
   constructor() {
+    this.displayTasks = this.displayTasks.bind(this);
       this.UI = {
           entirePage: document.querySelector("html"),
           userInput: document.querySelector(".app__form--input"),
@@ -9,11 +10,12 @@ class TodoView {
           displayIncompleteTasks: document.querySelector("#incomplete"),
           displayCompleteTasks: document.querySelector("#complete"),
           activeTasks: document.querySelector(".app__tasks-active"),
-          date: document.querySelector(".app__date")
+          date: document.querySelector(".app__date"),
+          type: false
       }
   }
 
-  invokeEventListeners(array, updateList) {
+  invokeEventListeners(updateList, getTodos) {
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
@@ -21,16 +23,19 @@ class TodoView {
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
               updateList(userInputFinal);
+              getTodos();
           } else {
               this.UI.userInput.value = ``;
               this.UI.errorElement.innerHTML = "Error, Input Isn't Long Enough!";
           }
       });
       this.UI.displayIncompleteTasks.addEventListener("click", () => {
-          this.displayTasks(false, array)
+          this.UI.type = false;
+          this.displayTasks(getTodos.array)
         });
       this.UI.displayCompleteTasks.addEventListener("click", () => {
-          this.displayTasks(true, array)
+          this.UI.type = true;
+          this.displayTasks(getTodos.array)
         });
       this.UI.tasksSection.addEventListener("click", event => {
         const {
@@ -63,23 +68,22 @@ class TodoView {
       this.UI.date.innerHTML = new Date().toLocaleString('en-us', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  displayTasks(type, todos) {
-    // Pass in a callback from controller that grabs the array
+  displayTasks(todos) {
+    console.log("display called");
+    console.log(this.UI.type);
       let index = 0;
       let dataAttributeType;
       let html = ``;
-      console.log(type);
-      if (type) {
+      if (this.UI.type) {
           dataAttributeType = "undo";
       } else {
           dataAttributeType = "delete";
       }
-      const filteredList =  todos.filter(function(task) {
-          return task.state == type;
+      /*
+      const filteredList = todos.filter(function(task) {
+          return task.state == this.UI.type;
       });
 
-    // Fix this
-    // Switch this to rewrite everything in filteredList
       for (index in filteredList) {
               html += `
             <div>
@@ -90,7 +94,7 @@ class TodoView {
             </div>
            </div>
             `;
-          }
+    } */
     this.UI.tasksSection.innerHTML = html;
   }
 }

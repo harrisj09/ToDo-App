@@ -8,8 +8,8 @@ class TodoController {
   init() {
       // Starts the whole process
       this.view.displayDate();
-      this.view.invokeEventListeners(this.model.todos, this.updateList);
-      this.view.displayTasks(false, this.model.todos)
+      this.view.invokeEventListeners(this.updateList, this.getTodoList);
+      this.view.displayTasks(this.model.todos);
       // this.view.displayActiveTasks();
       // Call display date (Once done)
   }
@@ -17,6 +17,10 @@ class TodoController {
   updateList(userInput = "") {
       console.log(`${userInput} from updateList`);
       this.model.addTodoList(userInput, false);
+  }
+
+  getTodoList() {
+    this.view.displayTasks(this.model.todos);
   }
 
   getActiveTasks() {
