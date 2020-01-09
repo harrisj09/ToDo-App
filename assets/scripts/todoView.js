@@ -39,7 +39,6 @@ class TodoView {
                 text: value
             }
         } = event.target;
-        //userClickedOn(classList);
         userClickedOn(classList);
     });
   }
