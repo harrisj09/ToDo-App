@@ -31,11 +31,11 @@ class TodoView {
       });
       this.UI.displayIncompleteTasks.addEventListener("click", () => {
           this.UI.type = false;
-          this.displayTasks(getTodos)
+          this.displayTasks(getTodos);
         });
       this.UI.displayCompleteTasks.addEventListener("click", () => {
           this.UI.type = true;
-          this.displayTasks(getTodos)
+          this.displayTasks(getTodos);
         });
       this.UI.tasksSection.addEventListener("click", event => {
         const {
@@ -54,7 +54,6 @@ class TodoView {
       const clickedText = holder.innerHTML;
       if (classList.contains("task__holder--complete")) {
           const clickedIndex = event.target.dataset.complete;
-          // Fix this
           //setCompletedTasks(this.model.todos, clickedIndex);
       } else if (classList.contains("task__holder--delete")) {
           const clickedIndex = event.target.dataset.delete;
@@ -70,6 +69,8 @@ class TodoView {
 
   displayTasks(todos) {
     console.log("display called");
+    todos();
+    //console.log(todos);
     console.log(this.UI.type);
       let index = 0;
       let dataAttributeType;

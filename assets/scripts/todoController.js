@@ -9,7 +9,7 @@ class TodoController {
       // Starts the whole process
       this.view.displayDate();
       this.view.invokeEventListeners(this.updateList, this.getTodoList);
-      this.view.displayTasks(this.model.todos);
+      this.view.displayTasks(this.getTodoList);
       // this.view.displayActiveTasks();
       // Call display date (Once done)
   }
@@ -20,11 +20,11 @@ class TodoController {
   }
 
   getTodoList() {
-    this.view.displayTasks(this.model.todos);
+      return this.model.todos;
+    //this.view.displayTasks(this.model.todos);
   }
 
   getActiveTasks() {
-      let index = 0;
       let numberOfActiveTasks = 0;
       for (index in this.model.todos) {
           if (index.state == false) {
