@@ -14,7 +14,7 @@ class TodoView {
       }
   }
 
-  invokeEventListeners(updateList) {
+  invokeEventListeners(updateList, handleClickedTask) {
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
@@ -37,27 +37,27 @@ class TodoView {
           updateList();
         });
 
-      this.UI.tasksSection.addEventListener("click", (event, handleClickedTask) => {
+      this.UI.tasksSection.addEventListener("click", function(event) {
         const {
             classList,
-            //dataSet: {
-                //text: value
-           //}
+            /*dataSet: {
+                text: value
+           }*/
         } = event.target;
           const holder = event.target;
           const clickedText = holder.innerHTML;
           if (classList.contains("task__holder--complete")) {
               const clickedIndex = event.target.dataset.complete;
               console.log(`clicked complete ${clickedIndex}`);
-              //handleClickedTask(1, clickedIndex);
+              handleClickedTask(1, clickedIndex);
           } else if (classList.contains("task__holder--delete")) {
               const clickedIndex = event.target.dataset.delete;
               console.log(`clicked delete ${clickedIndex}`);
-              //handleClickedTask(2, clickedIndex);
+              handleClickedTask(2, clickedIndex);
           } else if (classList.contains("task__holder--undo")) {
               const clickedIndex = event.target.dataset.undo;
               console.log(`clicked undo ${clickedIndex}`);
-              //handleClickedTask(3, clickedIndex);
+              handleClickedTask(3, clickedIndex);
           }
       });
   }

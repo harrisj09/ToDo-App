@@ -8,8 +8,7 @@ class TodoController {
 
   init() {
       this.view.displayDate();
-      this.view.invokeEventListeners(this.updateList);
-      this.handleClickedTask();
+      this.view.invokeEventListeners(this.updateList, this.handleClickedTask);
   }
 
   updateList(userInput = "") {
