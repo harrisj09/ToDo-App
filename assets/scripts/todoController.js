@@ -3,11 +3,13 @@ class TodoController {
       this.model = model;
       this.view = view;
       this.updateList = this.updateList.bind(this); 
+      //this.handleClickedTask = this.handleClickedTask.bind(this); 
   }
 
   init() {
       this.view.displayDate();
-      this.view.invokeEventListeners(this.updateList, this.handleClickedTask());
+      this.view.invokeEventListeners(this.updateList);
+      this.handleClickedTask();
   }
 
   updateList(userInput = "") {
@@ -18,7 +20,7 @@ class TodoController {
   }
 
   // takes in a number and index
-  handleClickedTask(taskToPerfrom = -2, attributeIndex = -1) {
+  handleClickedTask(taskToPerfrom = -1, attributeIndex = -1) {
       // 1 is complete, 2 is delete and 3 is undo (switch state of completed from true to false)
     switch(taskToPerfrom) {
         case 1:
