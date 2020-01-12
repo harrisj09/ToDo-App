@@ -7,7 +7,7 @@ class TodoController {
 
   init() {
       this.view.displayDate();
-      this.view.invokeEventListeners(this.updateList);
+      this.view.invokeEventListeners(this.updateList, this.handleClickedTask());
   }
 
   updateList(userInput = "") {
@@ -15,6 +15,24 @@ class TodoController {
         this.model.addTodoList(userInput, false);
       }
       this.view.displayTasks(this.model.todos);
+  }
+
+  // takes in a number and index
+  handleClickedTask(taskToPerfrom = -2, attributeIndex = -1) {
+      // 1 is complete, 2 is delete and 3 is undo (switch state of completed from true to false)
+    switch(taskToPerfrom) {
+        case 1:
+            this.model.completeTask(attributeIndex);
+            break;
+        case 2:
+            this.model.removeTodo(attributeIndex);
+            break;
+        case 3:
+            this.model.undoTask(attributeIndex);
+            break;
+        default:
+            console.log(taskToPerfrom);
+    }
   }
 
   getActiveTasks() {
@@ -31,6 +49,7 @@ class TodoController {
   tasksFilter(type) {
       this.view.displayTasks(type, this.model.todos);
   }
+
 }
 
 export default TodoController;

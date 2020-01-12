@@ -14,7 +14,7 @@ class TodoView {
       }
   }
 
-  invokeEventListeners(updateList) {
+  invokeEventListeners(updateList, handleClickedTask) {
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
@@ -26,36 +26,42 @@ class TodoView {
               this.UI.errorElement.innerHTML = "Error, Input Isn't Long Enough!";
           }
       });
+
       this.UI.displayIncompleteTasks.addEventListener("click", () => {
           this.UI.type = false;
           updateList();
         });
+
       this.UI.displayCompleteTasks.addEventListener("click", () => {
           this.UI.type = true;
           updateList();
         });
-      this.UI.tasksSection.addEventListener("click", event => {
-        const {
-            classList,
-            //dataSet: {
-                //text: value
-           // }
-        } = event.target;
-          const holder = event.target;
-          const clickedText = holder.innerHTML;
-          if (classList.contains("task__holder--complete")) {
-              const clickedIndex = event.target.dataset.complete;
-              console.log("clicked complete");
-              //setCompletedTasks(this.model.todos, clickedIndex);
-          } else if (classList.contains("task__holder--delete")) {
-              const clickedIndex = event.target.dataset.delete;
-              console.log("clicked delete");
-              //this.model.removeTodo(this.model.todos, clickedIndex);
-          } else if (classList.contains("task__holder--undo")) {
-                console.log("clicked undo");
-              const clickedIndex = event.target.dataset.undo;
-          }
-    });
+        
+      this.UI.tasksSection.addEventListener("click", getClickedAttribute(event, handleClickedTask));
+  }
+
+  getClickedAttribute(event, handleClickedTask) {
+    const {
+        classList,
+        //dataSet: {
+            //text: value
+       //}
+    } = event.target;
+      const holder = event.target;
+      const clickedText = holder.innerHTML;
+      if (classList.contains("task__holder--complete")) {
+          const clickedIndex = event.target.dataset.complete;
+          console.log("clicked complete");
+          handleClickedTask(1, clickedIndex);
+      } else if (classList.contains("task__holder--delete")) {
+          const clickedIndex = event.target.dataset.delete;
+          console.log("clicked delete");
+          handleClickedTask(2, clickedIndex);
+      } else if (classList.contains("task__holder--undo")) {
+          const clickedIndex = event.target.dataset.undo;
+          console.log("clicked undo");
+          handleClickedTask(3, clickedIndex);
+      }
   }
 
   displayDate() {
@@ -76,6 +82,7 @@ class TodoView {
       });
 
       filteredList.forEach(filteredTitle => {
+          console.log(index);
         html += `
         <div>
         <div class="task__holder">
@@ -85,9 +92,11 @@ class TodoView {
         </div>
        </div>
         `;
-      });
+        index++;
+    });
     this.UI.tasksSection.innerHTML = html;
   }
+  
 }
 
 export default TodoView;

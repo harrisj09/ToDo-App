@@ -13,7 +13,8 @@ class TodoModel {
   }
 
   completeTask(index) {
-      this.todos[index].state = false;
+      this.todos[index].completed = true;
+      console.log(this.todos);
   }
 
   removeTodo(index) {
@@ -29,7 +30,7 @@ class TodoModel {
   undoTask(index) {
     this.todos[index].state = false;
   }
-  
+
 }
 
 export default TodoModel;
