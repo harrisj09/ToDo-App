@@ -10,7 +10,6 @@ class TodoModel {
           title: title,
           completed
       });
-      console.log(this.todos);
   }
 
   completeTask(index) {

@@ -6,22 +6,15 @@ class TodoController {
   }
 
   init() {
-      // Starts the whole process
       this.view.displayDate();
-      this.view.invokeEventListeners(this.updateList, this.getTodoList);
-      this.view.displayTasks(this.getTodoList);
-      // this.view.displayActiveTasks();
-      // Call display date (Once done)
+      this.view.invokeEventListeners(this.updateList);
   }
 
   updateList(userInput = "") {
-      console.log(`${userInput} from updateList`);
-      this.model.addTodoList(userInput, false);
-  }
-
-  getTodoList() {
-      return this.model.todos;
-    //this.view.displayTasks(this.model.todos);
+      if(userInput.length > 0) {
+        this.model.addTodoList(userInput, false);
+      }
+      this.view.displayTasks(this.model.todos);
   }
 
   getActiveTasks() {
@@ -32,10 +25,9 @@ class TodoController {
           }
       }
       this.view.displayActiveTasks(numberOfActiveTasks);
-      //updateList;
   }
 
-  // Neeeds to be called possibly from the event listeners
+  // Needs to be called possibly from the event listeners
   tasksFilter(type) {
       this.view.displayTasks(type, this.model.todos);
   }

@@ -1,6 +1,5 @@
 class TodoView {
   constructor() {
-    this.displayTasks = this.displayTasks.bind(this);
       this.UI = {
           entirePage: document.querySelector("html"),
           userInput: document.querySelector(".app__form--input"),
@@ -15,15 +14,13 @@ class TodoView {
       }
   }
 
-  invokeEventListeners(updateList, getTodos) {
+  invokeEventListeners(updateList) {
       this.UI.submit.addEventListener("click", () => {
           const userInputFinal = this.UI.userInput.value;
           if (userInputFinal.length > 0) {
-              console.log("Submit was pressed");
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
               updateList(userInputFinal);
-              getTodos();
           } else {
               this.UI.userInput.value = ``;
               this.UI.errorElement.innerHTML = "Error, Input Isn't Long Enough!";
@@ -31,11 +28,11 @@ class TodoView {
       });
       this.UI.displayIncompleteTasks.addEventListener("click", () => {
           this.UI.type = false;
-          this.displayTasks(getTodos);
+          updateList();
         });
       this.UI.displayCompleteTasks.addEventListener("click", () => {
           this.UI.type = true;
-          this.displayTasks(getTodos);
+          updateList();
         });
       this.UI.tasksSection.addEventListener("click", event => {
         const {
@@ -49,7 +46,6 @@ class TodoView {
   }
 
   userClickedOn(event) {
-    // Have other callback functions for calling delete, undo or complete
       const holder = event.target;
       const clickedText = holder.innerHTML;
       if (classList.contains("task__holder--complete")) {
@@ -68,34 +64,29 @@ class TodoView {
   }
 
   displayTasks(todos) {
-    console.log("display called");
-    todos();
-    //console.log(todos);
-    console.log(this.UI.type);
       let index = 0;
       let dataAttributeType;
       let html = ``;
       if (this.UI.type) {
           dataAttributeType = "undo";
       } else {
-          dataAttributeType = "delete";
+          dataAttributeType = "complete";
       }
-      /*
-      const filteredList = todos.filter(function(task) {
-          return task.state == this.UI.type;
+      const filteredList = todos.filter(task => {
+        return task.completed == this.UI.type;
       });
-
+      console.log(filteredList);
       for (index in filteredList) {
-              html += `
-            <div>
-            <div class="task__holder">
-                <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
-                    <p class="task__desc">${index.task}</p>
-                <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
-            </div>
-           </div>
-            `;
-    } */
+        html += `
+      <div>
+      <div class="task__holder">
+          <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
+              <p class="task__desc">${index.title}</p>
+          <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
+      </div>
+     </div>
+      `;
+        }
     this.UI.tasksSection.innerHTML = html;
   }
 }
