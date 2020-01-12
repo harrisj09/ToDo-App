@@ -37,26 +37,25 @@ class TodoView {
       this.UI.tasksSection.addEventListener("click", event => {
         const {
             classList,
-            dataSet: {
-                text: value
-            }
+            //dataSet: {
+                //text: value
+           // }
         } = event.target;
-        userClickedOn(classList);
+          const holder = event.target;
+          const clickedText = holder.innerHTML;
+          if (classList.contains("task__holder--complete")) {
+              const clickedIndex = event.target.dataset.complete;
+              console.log("clicked complete");
+              //setCompletedTasks(this.model.todos, clickedIndex);
+          } else if (classList.contains("task__holder--delete")) {
+              const clickedIndex = event.target.dataset.delete;
+              console.log("clicked delete");
+              //this.model.removeTodo(this.model.todos, clickedIndex);
+          } else if (classList.contains("task__holder--undo")) {
+                console.log("clicked undo");
+              const clickedIndex = event.target.dataset.undo;
+          }
     });
-  }
-
-  userClickedOn(event) {
-      const holder = event.target;
-      const clickedText = holder.innerHTML;
-      if (classList.contains("task__holder--complete")) {
-          const clickedIndex = event.target.dataset.complete;
-          //setCompletedTasks(this.model.todos, clickedIndex);
-      } else if (classList.contains("task__holder--delete")) {
-          const clickedIndex = event.target.dataset.delete;
-          //this.model.removeTodo(this.model.todos, clickedIndex);
-      } else if (classList.contains("task__holder--undo")) {
-          const clickedIndex = event.target.dataset.undo;
-      }
   }
 
   displayDate() {

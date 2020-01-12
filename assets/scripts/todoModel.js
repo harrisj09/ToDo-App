@@ -18,11 +18,18 @@ class TodoModel {
 
   removeTodo(index) {
       this.todos.splice(index, 1);
+      this.resetIds();
+  }
+
+  // method to reset ids since array index was deleted
+  resetIds() {
+      console.log("Resizing ids");
   }
 
   undoTask(index) {
     this.todos[index].state = false;
   }
+  
 }
 
 export default TodoModel;
