@@ -12,6 +12,10 @@ class TodoView {
           date: document.querySelector(".app__date"),
           type: false
       }
+
+      this.domHandler = {
+        idGenerator: 0
+      }
   }
 
   invokeEventListeners(updateList, handleClickedTask) {
@@ -20,7 +24,8 @@ class TodoView {
           if (userInputFinal.length > 0) {
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
-              updateList(userInputFinal);
+              updateList(this.domHandler.idGenerator, userInputFinal);
+              this.domHandler.idGenerator++;
           } else {
               this.UI.userInput.value = ``;
               this.UI.errorElement.innerHTML = "Error, Input Isn't Long Enough!";
@@ -83,7 +88,7 @@ class TodoView {
         html += `
         <div>
         <div class="task__holder">
-            <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
+            <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${filteredTitle.id}">${dataAttributeType}</div>
                 <p class="task__desc">${filteredTitle.title}</p>
             <div class="task__holder--delete" data-delete="${index}">Delete</div>
         </div>
@@ -92,6 +97,11 @@ class TodoView {
         index++;
     });
     this.UI.tasksSection.innerHTML = html;
+    
+  }
+
+  displayActiveTasks() {
+
   }
   
 }

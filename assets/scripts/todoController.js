@@ -9,11 +9,14 @@ class TodoController {
   init() {
       this.view.displayDate();
       this.view.invokeEventListeners(this.updateList, this.handleClickedTask);
+      this.view.displayTasks(this.model.todos);
+      this.getActiveTasks();
   }
 
-  updateList(userInput = "") {
+  updateList(idGenerator, userInput = "") {
+      console.log(idGenerator);
       if(userInput.length > 0) {
-        this.model.addTodoList(userInput, false);
+        this.model.addTodoList(userInput, idGenerator);
       }
       this.view.displayTasks(this.model.todos);
   }
@@ -40,14 +43,14 @@ class TodoController {
     console.log(`${taskToPerfrom} task being performed and the index is ${attributeIndex}`);
   }
 
+  // Fix this
   getActiveTasks() {
       let numberOfActiveTasks = 0;
-      for (index in this.model.todos) {
-          if (index.state == false) {
-              numberOfActiveTasks++;
-          }
-      }
-      this.view.displayActiveTasks(numberOfActiveTasks);
+      const filteredList = this.model.todos.filter(task => {
+        return task.completed == this.UI.type;
+      });
+      console.log(`${this.filteredList.length} from getActiveTasks`);
+      //this.view.displayActiveTasks(numberOfActiveTasks);
   }
 
   // Needs to be called possibly from the event listeners
