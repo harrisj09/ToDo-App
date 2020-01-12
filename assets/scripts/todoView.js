@@ -75,18 +75,18 @@ class TodoView {
       const filteredList = todos.filter(task => {
         return task.completed == this.UI.type;
       });
-      console.log(filteredList);
-      for (index in filteredList) {
+
+      filteredList.forEach(filteredTitle => {
         html += `
-      <div>
-      <div class="task__holder">
-          <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
-              <p class="task__desc">${index.title}</p>
-          <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
-      </div>
-     </div>
-      `;
-        }
+        <div>
+        <div class="task__holder">
+            <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${index}">${dataAttributeType}</div>
+                <p class="task__desc">${filteredTitle.title}</p>
+            <div class="task__holder--delete" data-${dataAttributeType}="${index}">Delete</div>
+        </div>
+       </div>
+        `;
+      });
     this.UI.tasksSection.innerHTML = html;
   }
 }
