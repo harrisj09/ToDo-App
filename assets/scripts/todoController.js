@@ -3,7 +3,7 @@ class TodoController {
       this.model = model;
       this.view = view;
       this.updateList = this.updateList.bind(this); 
-      //this.handleClickedTask = this.handleClickedTask.bind(this); 
+      this.handleClickedTask = this.handleClickedTask.bind(this); 
   }
 
   init() {
@@ -21,19 +21,23 @@ class TodoController {
   // takes in a number and index
   handleClickedTask(taskToPerfrom = -1, attributeIndex = -1) {
       // 1 is complete, 2 is delete and 3 is undo (switch state of completed from true to false)
-    switch(taskToPerfrom) {
-        case 1:
+     switch(taskToPerfrom) {
+       case 1:
             this.model.completeTask(attributeIndex);
+            this.view.displayTasks(this.model.todos);
             break;
         case 2:
             this.model.removeTodo(attributeIndex);
+            this.view.displayTasks(this.model.todos);
             break;
         case 3:
             this.model.undoTask(attributeIndex);
+            this.view.displayTasks(this.model.todos);
             break;
         default:
             console.log(taskToPerfrom);
     }
+    console.log(`${taskToPerfrom} task being performed and the index is ${attributeIndex}`);
   }
 
   getActiveTasks() {

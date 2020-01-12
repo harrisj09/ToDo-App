@@ -40,9 +40,9 @@ class TodoView {
       this.UI.tasksSection.addEventListener("click", function(event) {
         const {
             classList,
-            /*dataSet: {
-                text: value
-           }*/
+            //dataSet: {
+                //text: value
+           //}
         } = event.target;
           const holder = event.target;
           const clickedText = holder.innerHTML;
