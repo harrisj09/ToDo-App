@@ -1,4 +1,6 @@
 class TodoModel {
+    
+    // Add local storage use
   constructor(task, id, completed) {
       // get the index of the ID number assiociated with it
       this.todos = [
@@ -23,6 +25,15 @@ class TodoModel {
   removeTodo(index) {
       // get the index of the ID number assiociated with it
       this.todos.splice(index, 1);
+      this.resetIds();
+  }
+
+  resetIds() {
+      let counter = 0;
+      this.todos.forEach(todos => {
+        todos.id = counter;
+        counter++;
+      });
   }
 
   undoTask(index) {

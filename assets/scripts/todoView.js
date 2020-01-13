@@ -44,7 +44,7 @@ class TodoView {
 
       this.UI.tasksSection.addEventListener("click", function(event) {
         const {
-            classList,
+            classList
             //dataSet: {
                 //text: value
            //}
@@ -71,6 +71,10 @@ class TodoView {
       this.UI.date.innerHTML = new Date().toLocaleString('en-us', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   }
 
+  displayActiveTasks(todos) {
+    console.log(`${todos} from displayTasks`);
+  }
+
   displayTasks(todos) {
       let index = 0;
       let dataAttributeType;
@@ -83,6 +87,8 @@ class TodoView {
       const filteredList = todos.filter(task => {
         return task.completed == this.UI.type;
       });
+
+      this.displayActiveTasks(todos);
 
       filteredList.forEach(filteredTitle => {
         html += `
