@@ -53,15 +53,12 @@ class TodoView {
           const clickedText = holder.innerHTML;
           if (classList.contains("task__holder--complete")) {
               const clickedIndex = event.target.dataset.complete;
-              console.log(`clicked complete ${clickedIndex}`);
               handleClickedTask(1, clickedIndex);
           } else if (classList.contains("task__holder--delete")) {
               const clickedIndex = event.target.dataset.delete;
-              console.log(`clicked delete ${clickedIndex}`);
               handleClickedTask(2, clickedIndex);
           } else if (classList.contains("task__holder--undo")) {
               const clickedIndex = event.target.dataset.undo;
-              console.log(`clicked undo ${clickedIndex}`);
               handleClickedTask(3, clickedIndex);
           }
       });
@@ -72,7 +69,7 @@ class TodoView {
   }
 
   displayActiveTasks(todos) {
-    console.log(`${todos} from displayTasks`);
+    this.UI.activeTasks.innerHTML = `${todos.length} Active Tasks`;
   }
 
   displayTasks(todos) {
@@ -88,7 +85,7 @@ class TodoView {
         return task.completed == this.UI.type;
       });
 
-      this.displayActiveTasks(todos);
+      this.displayActiveTasks(filteredList);
 
       filteredList.forEach(filteredTitle => {
         html += `
@@ -96,7 +93,7 @@ class TodoView {
         <div class="task__holder">
             <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${filteredTitle.id}">${dataAttributeType}</div>
                 <p class="task__desc">${filteredTitle.title}</p>
-            <div class="task__holder--delete" data-delete="${index}">Delete</div>
+            <div class="task__holder--delete" data-delete="${filteredTitle.id}">Delete</div>
         </div>
        </div>
         `;
@@ -104,10 +101,6 @@ class TodoView {
     });
     this.UI.tasksSection.innerHTML = html;
     
-  }
-
-  displayActiveTasks() {
-
   }
   
 }

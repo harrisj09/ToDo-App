@@ -13,7 +13,6 @@ class TodoController {
   }
 
   updateList(idGenerator, userInput = "") {
-      console.log(idGenerator);
       if(userInput.length > 0) {
         this.model.addTodoList(userInput, idGenerator);
       }
@@ -39,7 +38,6 @@ class TodoController {
         default:
             console.log(taskToPerfrom);
     }
-    console.log(`${taskToPerfrom} task being performed and the index is ${attributeIndex}`);
   }
 
   // Needs to be called possibly from the event listeners
