@@ -68,12 +68,7 @@ class TodoView {
       this.UI.date.innerHTML = new Date().toLocaleString('en-us', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  displayActiveTasks(todos) {
-    this.UI.activeTasks.innerHTML = `${todos.length} Active Tasks`;
-  }
-
   displayTasks(todos) {
-      let index = 0;
       let dataAttributeType;
       let html = ``;
       if (this.UI.type) {
@@ -85,8 +80,6 @@ class TodoView {
         return task.completed == this.UI.type;
       });
 
-      this.displayActiveTasks(filteredList);
-
       filteredList.forEach(filteredTitle => {
         html += `
         <div>
@@ -97,10 +90,8 @@ class TodoView {
         </div>
        </div>
         `;
-        index++;
     });
     this.UI.tasksSection.innerHTML = html;
-    
   }
   
 }
