@@ -77,8 +77,9 @@
 }
 
 .app__form-wrapper .app__form--input {
+  margin-top: 50px;
   border-radius: 3px;
-  padding: 15px 200px 15px 10px;
+  padding: 15px 500px 15px 10px;
   font-family: "Source Sans Pro", sans-serif;
   background-color: #1C7CD5;
   color: white;
@@ -111,13 +112,13 @@
 
 .app__form-wrapper .app__form--submit {
   border-radius: 3px;
-  margin-top: 10px;
+  margin-top: 60px;
   border: 2px solid #1C7CD5;
   background-color: #1C7CD5;
   text-align: center;
   width: 100px;
-  padding: 5px 0;
-  font-size: 0.55rem;
+  padding: 25px 80px;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
