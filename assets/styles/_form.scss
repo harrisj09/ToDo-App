@@ -14,6 +14,12 @@
         color: $textColorWhite;
         font-size: $mobileSizeHeading;
     }
+
+    .app__form--input::placeholder {
+        color: $textColorWhite;
+        font-size: 1.05rem;
+        padding-bottom: 20px;
+    }
     
     .app__form--submit {
         border-radius: 3px;

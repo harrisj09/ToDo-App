@@ -25,6 +25,13 @@
     margin-left: 0px;
     color: $textColorGrey;
     cursor: pointer;
+    font-size: $mobileSizeHeading;
+}
+
+.app__title {
+    color: $textColorWhite;
+    font-family: $baseFont;
+    font-size: $mobileSizeHeading;
 }
 
 .app__tasks--state:hover {

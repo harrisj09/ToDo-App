@@ -4,7 +4,7 @@
 .app__date {
   color: white;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
 }
 
 .app__top-holder {
@@ -27,7 +27,7 @@
   position: relative;
   bottom: 10px;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   color: #1C8CBC;
 }
 
@@ -35,6 +35,13 @@
   margin-left: 0px;
   color: #ABAFB3;
   cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.app__title {
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.75rem;
 }
 
 .app__tasks--state:hover {
@@ -43,7 +50,7 @@
 
 .app__error {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   color: red;
 }
 
@@ -75,7 +82,31 @@
   font-family: "Source Sans Pro", sans-serif;
   background-color: #1C7CD5;
   color: white;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+}
+
+.app__form-wrapper .app__form--input::-webkit-input-placeholder {
+  color: white;
+  font-size: 1.05rem;
+  padding-bottom: 20px;
+}
+
+.app__form-wrapper .app__form--input:-ms-input-placeholder {
+  color: white;
+  font-size: 1.05rem;
+  padding-bottom: 20px;
+}
+
+.app__form-wrapper .app__form--input::-ms-input-placeholder {
+  color: white;
+  font-size: 1.05rem;
+  padding-bottom: 20px;
+}
+
+.app__form-wrapper .app__form--input::placeholder {
+  color: white;
+  font-size: 1.05rem;
+  padding-bottom: 20px;
 }
 
 .app__form-wrapper .app__form--submit {
@@ -86,7 +117,7 @@
   text-align: center;
   width: 100px;
   padding: 5px 0;
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   cursor: pointer;
 }
 
@@ -106,7 +137,7 @@
 
 .task__desc {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
 }
 
 .task__holder--complete {
