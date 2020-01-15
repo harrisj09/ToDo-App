@@ -8,12 +8,10 @@
 
 .task__desc {
     font-family: $baseFont;
-    color: $textColorWhite;
     font-size: $mobileSizeHeading;
 }
 
 .task__holder--complete {
-    color: $textColorWhite;
     cursor: pointer;
 }
 
@@ -22,7 +20,6 @@
 }
 
 .task__holder--delete {
-    color: $textColorWhite;
     cursor: pointer;
 }
 
@@ -31,7 +28,6 @@
 }
 
 .task__holder--undo {
-    color: $textColorWhite;
     cursor: pointer;
 }
 

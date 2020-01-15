@@ -4,20 +4,11 @@
 .app__date {
   margin: 30px 0px 0px 30px;
   font-family: "Source Sans Pro", sans-serif;
-  color: white;
   font-size: 0.95rem;
 }
 
-.app__tasks-active {
-  margin-left: 30px;
-  position: relative;
-  bottom: 10px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.75rem;
-  color: #1C8CBC;
-}
-
-.app__tasks {
+.app__top-holder {
+  border-bottom: 2px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,6 +19,16 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  background-color: #1EB4F5;
+}
+
+.app__tasks-active {
+  margin-left: 30px;
+  position: relative;
+  bottom: 10px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.75rem;
+  color: #1C8CBC;
 }
 
 .app__tasks--state {
@@ -103,12 +104,10 @@
 
 .task__desc {
   font-family: "Source Sans Pro", sans-serif;
-  color: white;
   font-size: 0.95rem;
 }
 
 .task__holder--complete {
-  color: white;
   cursor: pointer;
 }
 
@@ -117,7 +116,6 @@
 }
 
 .task__holder--delete {
-  color: white;
   cursor: pointer;
 }
 
@@ -126,7 +124,6 @@
 }
 
 .task__holder--undo {
-  color: white;
   cursor: pointer;
 }
 
@@ -135,7 +132,6 @@
 }
 
 .credit__text {
-  color: white;
   text-align: center;
 }
 
@@ -145,7 +141,6 @@
 
 /* Base Attributes */
 .app {
-  background-color: #393F49;
   margin: 0px;
 }
 /*# sourceMappingURL=style.css.map */
