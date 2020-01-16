@@ -84,8 +84,8 @@ class TodoView {
         html += `
         <div>
         <div class="task__holder">
-            <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${filteredTitle.id}">${dataAttributeType}</div>
-                <p class="task__desc">${filteredTitle.title}</p>
+            <p class="task__desc">${filteredTitle.title}</p>
+                <div class="task__holder--${dataAttributeType}" data-${dataAttributeType}="${filteredTitle.id}">${dataAttributeType}</div>
             <div class="task__holder--delete" data-delete="${filteredTitle.id}">Delete</div>
         </div>
        </div>
