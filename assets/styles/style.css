@@ -2,6 +2,7 @@
 /* Fonts */
 /* Text Sizes */
 .app__date {
+  display: inline-block;
   color: white;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 0.75rem;
@@ -9,16 +10,6 @@
 
 .app__top-holder {
   border-bottom: 2px solid #1C7CD5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #1C7CD5;
 }
 
@@ -32,13 +23,15 @@
 }
 
 .app__tasks--state {
-  margin-left: 0px;
+  float: right;
+  margin-right: 10px;
   color: #ABAFB3;
   cursor: pointer;
   font-size: 0.75rem;
 }
 
 .app__title {
+  display: inline-block;
   color: white;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 0.75rem;
@@ -54,22 +47,27 @@
   color: red;
 }
 
+/*
 @media only screen and (min-width: 600px) {
-  .app__tasks {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-  }
-  .app__tasks--state {
-    margin-left: 50px;
-    color: #ABAFB3;
-    cursor: pointer;
-  }
-}
-
+    .app__tasks {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+    .app__tasks--state {
+        margin-left: 50px;
+        color: $textColorGrey;
+        cursor: pointer;
+    }
+}*/
 .app__form-wrapper {
   margin: 20px 40px 0px 40px;
-  border-bottom: 2px solid #ABAFB3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .app__form-wrapper .app__form {
@@ -79,7 +77,7 @@
 .app__form-wrapper .app__form--input {
   margin-top: 50px;
   border-radius: 3px;
-  padding: 15px 500px 15px 10px;
+  padding: 15px 60vw 15px 10px;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1.05rem;
 }
@@ -107,11 +105,12 @@
 .app__form-wrapper .app__form--submit {
   border-radius: 3px;
   margin-top: 60px;
+  text-align: center;
   border: 2px solid #1C7CD5;
   background-color: #1C7CD5;
   text-align: center;
   width: 100px;
-  padding: 25px 80px;
+  padding: 10px 50px;
   font-size: 1.25rem;
   cursor: pointer;
 }

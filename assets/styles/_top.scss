@@ -1,4 +1,5 @@
 .app__date {
+    display: inline-block;
     color: $textColorWhite;
     font-family: $baseFont;
     font-size: $mobileSizeHeading;
@@ -6,9 +7,6 @@
 
 .app__top-holder {
     border-bottom: 2px solid $boxColorLightBlue;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
     background-color: $boxColorLightBlue;
 }
 
@@ -22,13 +20,16 @@
 }
 
 .app__tasks--state{
-    margin-left: 0px;
+    float: right;
+    margin-right: 10px;
     color: $textColorGrey;
     cursor: pointer;
     font-size: $mobileSizeHeading;
 }
 
 .app__title {
+    display: inline-block;
+    
     color: $textColorWhite;
     font-family: $baseFont;
     font-size: $mobileSizeHeading;
@@ -44,6 +45,7 @@
     color: $textColorRed;   
 }
 
+/*
 @media only screen and (min-width: 600px) {
     .app__tasks {
         position: absolute;
@@ -55,4 +57,4 @@
         color: $textColorGrey;
         cursor: pointer;
     }
-}
+}*/

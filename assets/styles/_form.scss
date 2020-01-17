@@ -1,6 +1,7 @@
 .app__form-wrapper {
     margin: 20px 40px 0px 40px;
-    border-bottom: 2px solid #ABAFB3;
+    display: flex;
+    justify-content: center;
 
     .app__form {
         margin-bottom: 30px;
@@ -9,7 +10,7 @@
     .app__form--input {
         margin-top: 50px;
         border-radius: 3px;
-        padding: 15px 500px 15px 10px;
+        padding: 15px 60vw 15px 10px;
         font-family: $formFont;
         font-size: 1.05rem;
     }
@@ -22,11 +23,12 @@
     .app__form--submit {
         border-radius: 3px;
         margin-top: 60px;
+        text-align: center;
         border: 2px solid $boxColorLightBlue;
         background-color: $boxColorLightBlue;
         text-align: center;
         width: 100px;
-        padding: 25px 80px;
+        padding: 10px 50px;
         font-size: 1.25rem;
         cursor: pointer;
     }
