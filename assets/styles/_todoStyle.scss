@@ -12,13 +12,15 @@
     display: flex;
     border: 3px solid $textColorGrey;
     border-radius: 10px;
-    /*Set a fixed width, but padding should fix this*/
     margin: 20px 40px 0px 40px;
 }
 
 .task__desc {
     font-family: $baseFont;
     font-size: $mobileSizeHeading;
+    width: 100px;
+    /*Set a fixed width, padding should also fix this*/
+    padding-bottom: 10px;
 }
 
 .task__holder--complete {
