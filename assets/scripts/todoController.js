@@ -1,3 +1,6 @@
+/*
+Might remove the date and switch it to active tasks
+*/
 class TodoController {
   constructor(model, view) {
       this.model = model;
