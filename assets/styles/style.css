@@ -102,13 +102,14 @@
   cursor: pointer;
 }
 
+/*Theres an issue with formatting longer strings(tasks)*/
 .task__holder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border: 3px solid #cccdcf;
   border-radius: 10px;
-  /*Set a fixed width, but padding will fix this*/
+  /*Set a fixed width, but padding should fix this*/
   margin: 20px 40px 0px 40px;
 }
 
