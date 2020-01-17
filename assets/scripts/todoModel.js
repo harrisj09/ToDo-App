@@ -1,6 +1,5 @@
 class TodoModel {
-    
-    // Add local storage use
+
   constructor(task, id, completed) {
       this.todos = [
           // blank by default
@@ -21,6 +20,7 @@ class TodoModel {
 
   removeTodo(index) {
       this.todos.splice(index, 1);
+
       this.resetIds();
   }
 

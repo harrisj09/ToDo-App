@@ -6,6 +6,7 @@
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
+  margin-left: 10px;
 }
 
 .app__top-holder {
@@ -32,6 +33,7 @@
 
 .app__title {
   display: inline-block;
+  margin-left: 40%;
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
@@ -45,6 +47,74 @@
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #ff5c5c;
+}
+
+@media only screen and (max-width: 1000px) {
+  .app__title {
+    display: inline-block;
+    margin-left: 15%;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.95rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .app__title {
+    display: inline-block;
+    margin-left: 25%;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.95rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .app__title {
+    display: inline-block;
+    margin-left: 10%;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: .75rem;
+  }
+  .app__tasks--state {
+    float: right;
+    margin-right: 10px;
+    color: #cccdcf;
+    cursor: pointer;
+    font-size: .75rem;
+  }
+  .app__date {
+    display: inline-block;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: .75rem;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .app__title {
+    display: inline-block;
+    margin-left: 5%;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: .55rem;
+  }
+  .app__tasks--state {
+    float: right;
+    margin-right: 10px;
+    color: #cccdcf;
+    cursor: pointer;
+    font-size: .55rem;
+  }
+  .app__date {
+    display: inline-block;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: .55rem;
+    margin-left: 10px;
+  }
 }
 
 .app__form-wrapper {
@@ -90,16 +160,37 @@
 }
 
 .app__form-wrapper .app__form--submit {
+  display: block;
   border-radius: 3px;
   margin-top: 60px;
   text-align: center;
   border: 2px solid #1C7CD5;
   background-color: #1C7CD5;
-  text-align: center;
   width: 100px;
   padding: 10px 50px;
   font-size: 1.25rem;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .app__form-wrapper .app__form--submit {
+    display: block;
+    border-radius: 3px;
+    margin-top: 60px;
+    text-align: center;
+    border: 2px solid #1C7CD5;
+    background-color: #1C7CD5;
+    padding: 5px 25px;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  .app__form-wrapper .app__form--input {
+    margin-top: 50px;
+    border-radius: 3px;
+    padding: 15px 40vw 15px 10px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.05rem;
+  }
 }
 
 /*Theres an issue with formatting longer strings(tasks)*/
@@ -118,6 +209,7 @@
   width: 100px;
   /*Set a fixed width, padding should also fix this*/
   padding-bottom: 10px;
+  padding-right: 20px;
 }
 
 .task__holder--complete {
@@ -172,6 +264,55 @@
 
 .task__holder--undo:hover {
   background-color: #1C8CBC;
+}
+
+@media only screen and (max-width: 550px) {
+  .task__holder {
+    border: 3px solid #cccdcf;
+    border-radius: 10px;
+    margin: 20px 40px 0px 40px;
+  }
+  .task__holder--complete {
+    border: 1px solid #34bb34;
+    border-radius: 30px;
+    background-color: #34bb34;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 40%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .task__holder--delete {
+    display: inline-block;
+    border: 1px solid #ff5c5c;
+    border-radius: 30px;
+    background-color: #ff5c5c;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 50%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    cursor: pointer;
+  }
+  .task__holder--undo {
+    border: 1px solid #1C7CD5;
+    border-radius: 30px;
+    background-color: #1C7CD5;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 40%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    cursor: pointer;
+  }
 }
 
 .credit__text {

@@ -3,6 +3,7 @@
     color: $textColorWhite;
     font-family: $baseFont;
     font-size: $mobileSizeHeading;
+    margin-left: 10px;
 }
 
 .app__top-holder {
@@ -29,6 +30,7 @@
 
 .app__title {
     display: inline-block;
+    margin-left: 40%;
     color: $textColorWhite;
     font-family: $baseFont;
     font-size: $mobileSizeHeading;
@@ -42,4 +44,79 @@
     font-family: $baseFont;
     font-size: $mobileSizeParagraph;
     color: $textColorRed;   
+}
+
+@media only screen and (max-width: 1000px)  {
+    .app__title {
+        display: inline-block;
+        margin-left: 15%;
+        color: $textColorWhite;
+        font-family: $baseFont;
+        font-size: $mobileSizeHeading;
+    }
+
+}
+
+@media only screen and (max-width: 800px)  {
+    .app__title {
+        display: inline-block;
+        margin-left: 25%;
+        color: $textColorWhite;
+        font-family: $baseFont;
+        font-size: $mobileSizeHeading;
+    }
+}
+
+    
+@media only screen and (max-width: 650px)  {
+    .app__title {
+        display: inline-block;
+        margin-left: 10%;
+        color: $textColorWhite;
+        font-family: $baseFont;
+        font-size: .75rem;
+    }
+
+    .app__tasks--state{
+        float: right;
+        margin-right: 10px;
+        color: $textColorGrey;
+        cursor: pointer;
+        font-size: .75rem;
+    }
+
+    .app__date {
+        display: inline-block;
+        color: $textColorWhite;
+        font-family: $baseFont;
+        font-size: .75rem;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .app__title {
+        display: inline-block;
+        margin-left: 5%;
+        color: $textColorWhite;
+        font-family: $baseFont;
+        font-size: .55rem;
+    }
+
+    .app__tasks--state{
+        float: right;
+        margin-right: 10px;
+        color: $textColorGrey;
+        cursor: pointer;
+        font-size: .55rem;
+    }
+
+    .app__date {
+        display: inline-block;
+        color: $textColorWhite;
+        font-family: $baseFont;
+        font-size: .55rem;
+        margin-left: 10px;
+    }
+
 }

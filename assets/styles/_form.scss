@@ -21,15 +21,38 @@
     }
     
     .app__form--submit {
+        display: block;
         border-radius: 3px;
         margin-top: 60px;
         text-align: center;
         border: 2px solid $boxColorLightBlue;
         background-color: $boxColorLightBlue;
-        text-align: center;
         width: 100px;
         padding: 10px 50px;
         font-size: 1.25rem;
         cursor: pointer;
+    }
+
+    @media only screen and (max-width: 600px)  {
+        
+        .app__form--submit {
+            display: block;
+            border-radius: 3px;
+            margin-top: 60px;
+            text-align: center;
+            border: 2px solid $boxColorLightBlue;
+            background-color: $boxColorLightBlue;
+
+            padding: 5px 25px;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+        .app__form--input {
+            margin-top: 50px;
+            border-radius: 3px;
+            padding: 15px 40vw 15px 10px;
+            font-family: $formFont;
+            font-size: 1.05rem;
+        }
     }
 }

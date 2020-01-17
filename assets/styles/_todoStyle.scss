@@ -21,6 +21,7 @@
     width: 100px;
     /*Set a fixed width, padding should also fix this*/
     padding-bottom: 10px;
+    padding-right: 20px;
 }
 
 .task__holder--complete {
@@ -57,4 +58,38 @@
 
 .task__holder--undo:hover {
     background-color: $textColorBlue;
+}
+
+@media only screen and (max-width: 550px) {
+    .task__holder {
+        border: 3px solid $textColorGrey;
+        border-radius: 10px;
+        margin: 20px 40px 0px 40px;
+    }
+
+    .task__holder--complete {
+        @include actionButtons($textColorGreen);
+        position: relative;
+        left: 40%;
+        align-self: center;
+        display: inline-block;
+        cursor: pointer;
+    }
+    
+    .task__holder--delete {
+        display: inline-block;
+        @include actionButtons($textColorRed);
+        position: relative;
+        left: 50%;
+        align-self: center;
+        cursor: pointer;
+    }
+    
+    .task__holder--undo {
+        @include actionButtons($boxColorLightBlue);
+        position: relative;
+        left: 40%;
+        align-self: center;
+        cursor: pointer;
+    }
 }
