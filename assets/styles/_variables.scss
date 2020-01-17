@@ -2,15 +2,17 @@
 $backgroundColor: #393F49;
 $boxColorLightBlue: #1C7CD5;
 $textColorWhite: white;
-$textColorGrey: #ABAFB3;
+$textColorGrey: rgb(204, 205, 207);
 $textColorBlue: #1C8CBC;
-$textColorRed: red;
-$textColorGreen: green;
+$textColorRed: rgb(255, 92, 92);
+$textColorRedHover: red;
+$textColorGreen: rgb(52, 187, 52);
+$textColorGreenHover: rgb(52, 155, 4);
 
 /* Fonts */
-$baseFont: 'Source Sans Pro', sans-serif;
+$baseFont: 'Open Sans', sans-serif;
 $formFont: 'Source Sans Pro', sans-serif;
 
 /* Text Sizes */
-$mobileSizeHeading: .75rem;
-$mobileSizeParagraph: 0.55rem;
+$mobileSizeHeading: .95rem;
+$mobileSizeParagraph: 0.75rem;

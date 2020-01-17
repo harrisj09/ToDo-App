@@ -1,8 +1,16 @@
+@mixin actionButtons($boxColor) {
+    border: 1px solid $boxColor;
+    border-radius: 30px;
+    background-color: $boxColor;
+    width: 35px;
+    height: 35px;
+}
+
 .task__holder {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border-bottom: 3px solid $textColorGrey;
+    border: 3px solid $textColorGrey;
+    border-radius: 10px;
+    /*Set a fixed width, but padding will fix this*/
     margin: 20px 40px 0px 40px;
 }
 
@@ -12,25 +20,37 @@
 }
 
 .task__holder--complete {
+    @include actionButtons($textColorGreen);
+    position: relative;
+    left: 70%;
+    align-self: center;
     cursor: pointer;
 }
 
 .task__holder--complete:hover {
-    color: $textColorGreen;
+    background-color: $textColorGreenHover;
 }
 
 .task__holder--delete {
+    @include actionButtons($textColorRed);
+    position: relative;
+    left: 80%;
+    align-self: center;
     cursor: pointer;
 }
 
 .task__holder--delete:hover {
-    color: $textColorRed;
+    background-color: $textColorRedHover;
 }
 
 .task__holder--undo {
+    @include actionButtons($boxColorLightBlue);
+    position: relative;
+    left: 70%;
+    align-self: center;
     cursor: pointer;
 }
 
 .task__holder--undo:hover {
-    color: $textColorGreen;
+    background-color: $textColorBlue;
 }

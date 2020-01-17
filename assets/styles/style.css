@@ -4,8 +4,8 @@
 .app__date {
   display: inline-block;
   color: white;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.95rem;
 }
 
 .app__top-holder {
@@ -17,24 +17,24 @@
   margin-left: 30px;
   position: relative;
   bottom: 10px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.55rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
   color: #1C8CBC;
 }
 
 .app__tasks--state {
   float: right;
   margin-right: 10px;
-  color: #ABAFB3;
+  color: #cccdcf;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
 }
 
 .app__title {
   display: inline-block;
   color: white;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.95rem;
 }
 
 .app__tasks--state:hover {
@@ -42,24 +42,11 @@
 }
 
 .app__error {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.55rem;
-  color: red;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #ff5c5c;
 }
 
-/*
-@media only screen and (min-width: 600px) {
-    .app__tasks {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-    }
-    .app__tasks--state {
-        margin-left: 50px;
-        color: $textColorGrey;
-        cursor: pointer;
-    }
-}*/
 .app__form-wrapper {
   margin: 20px 40px 0px 40px;
   display: -webkit-box;
@@ -119,43 +106,69 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 3px solid #ABAFB3;
+  border: 3px solid #cccdcf;
+  border-radius: 10px;
+  /*Set a fixed width, but padding will fix this*/
   margin: 20px 40px 0px 40px;
 }
 
 .task__desc {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.95rem;
 }
 
 .task__holder--complete {
+  border: 1px solid #34bb34;
+  border-radius: 30px;
+  background-color: #34bb34;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: 70%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   cursor: pointer;
 }
 
 .task__holder--complete:hover {
-  color: green;
+  background-color: #349b04;
 }
 
 .task__holder--delete {
+  border: 1px solid #ff5c5c;
+  border-radius: 30px;
+  background-color: #ff5c5c;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: 80%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   cursor: pointer;
 }
 
 .task__holder--delete:hover {
-  color: red;
+  background-color: red;
 }
 
 .task__holder--undo {
+  border: 1px solid #1C7CD5;
+  border-radius: 30px;
+  background-color: #1C7CD5;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: 70%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   cursor: pointer;
 }
 
 .task__holder--undo:hover {
-  color: green;
+  background-color: #1C8CBC;
 }
 
 .credit__text {
@@ -163,7 +176,7 @@
 }
 
 .credit__text--github {
-  color: #ABAFB3;
+  color: #cccdcf;
 }
 
 /* Base Attributes */
