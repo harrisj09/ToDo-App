@@ -25,6 +25,7 @@ class TodoView {
               this.UI.errorElement.innerHTML = ``;
               this.UI.userInput.value = ``;
               updateList(this.domHandler.idGenerator, userInputFinal);
+              // Remove this and have id generations handled in TodoModel
               this.domHandler.idGenerator++;
           } else {
               this.UI.userInput.value = ``;

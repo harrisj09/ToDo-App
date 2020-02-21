@@ -1,4 +1,11 @@
 class TodoController {
+
+    /**
+     * Other than the object parameters binds are set to prevent errors.
+     * @constructor
+     * @param {TodoModel} model - Allows data to be added and removed to the array
+     * @param {TodoView} view - Allows for the array of tasks to be displayed
+     */
   constructor(model, view) {
       this.model = model;
       this.view = view;
@@ -6,11 +13,24 @@ class TodoController {
       this.handleClickedTask = this.handleClickedTask.bind(this); 
   }
 
+  /**
+   * By calling the init() function it switches to view for the
+   * tasks, creates the date object and creates event listeners
+   * for TodoView.
+   */
   init() {
       this.view.displayDate();
       this.view.invokeEventListeners(this.updateList, this.handleClickedTask);
       this.view.displayTasks(this.model.todos);
   }
+
+/**
+ * When the user presses submit to create a new task. This function is called
+ * it checks the length of the string to see if it's acceptable and then 
+ * 
+ * @param {Integer} idGenerator A number is created when a user submits the
+ * @param {String} userInput Contains the string entered from the input box
+ */
 
   updateList(idGenerator, userInput = "") {
       if(userInput.length > 0) {
@@ -39,7 +59,6 @@ class TodoController {
     }
   }
 
-  // Needs to be called possibly from the event listeners
   tasksFilter(type) {
       this.view.displayTasks(type, this.model.todos);
   }
